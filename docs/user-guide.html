@@ -1,1220 +1,2470 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acclaim Portal – User Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acclaim Portal – User Guide</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  :root {
-    --teal:     #0d9488;
-    --teal-dark:#0f766e;
-    --teal-light:#f0fdfa;
-    --teal-mid: #ccfbf1;
-    --slate:    #1e293b;
-    --slate-mid:#475569;
-    --slate-light:#f8fafc;
-    --border:   #e2e8f0;
-    --white:    #ffffff;
-    --accent:   #f59e0b;
-  }
+      :root {
+        --teal: #0d9488;
+        --teal-dark: #0f766e;
+        --teal-light: #f0fdfa;
+        --teal-mid: #ccfbf1;
+        --slate: #1e293b;
+        --slate-mid: #475569;
+        --slate-light: #f8fafc;
+        --border: #e2e8f0;
+        --white: #ffffff;
+        --accent: #f59e0b;
+      }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    color: var(--slate);
-    background: var(--white);
-    line-height: 1.6;
-    font-size: 15px;
-  }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--slate);
+        background: var(--white);
+        line-height: 1.6;
+        font-size: 15px;
+      }
 
-  /* ── COVER PAGE ─────────────────────────────────── */
-  .cover {
-    background: linear-gradient(135deg, #0f766e 0%, #0d9488 45%, #1e3a5f 100%);
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 60px 40px;
-    page-break-after: always;
-  }
-  .cover-logo {
-    width: 72px; height: 72px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 20px;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px;
-    font-size: 36px;
-  }
-  .cover h1 { font-size: 48px; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
-  .cover h2 { font-size: 22px; font-weight: 400; opacity: 0.85; margin-bottom: 40px; }
-  .cover-divider { width: 60px; height: 3px; background: rgba(255,255,255,0.4); margin: 0 auto 40px; border-radius: 2px; }
-  .cover-meta { font-size: 13px; opacity: 0.6; }
-  .cover-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
-  .cover-badge {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 100px;
-    padding: 6px 16px;
-    font-size: 13px;
-    font-weight: 500;
-  }
+      /* ── COVER PAGE ─────────────────────────────────── */
+      .cover {
+        background: linear-gradient(
+          135deg,
+          #0f766e 0%,
+          #0d9488 45%,
+          #1e3a5f 100%
+        );
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 60px 40px;
+        page-break-after: always;
+      }
+      .cover-logo {
+        width: 88px;
+        height: 88px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+      }
+      .cover-logo img {
+        width: 88px;
+        height: 88px;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+      }
+      .cover h1 {
+        font-size: 48px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 12px;
+      }
+      .cover h2 {
+        font-size: 22px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 40px;
+      }
+      .cover-divider {
+        width: 60px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.4);
+        margin: 0 auto 40px;
+        border-radius: 2px;
+      }
+      .cover-meta {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .cover-badges {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+      .cover-badge {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 100px;
+        padding: 6px 16px;
+        font-size: 13px;
+        font-weight: 500;
+      }
 
-  /* ── LAYOUT ─────────────────────────────────────── */
-  .page { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+      /* ── LAYOUT ─────────────────────────────────────── */
+      .page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
 
-  /* ── TABLE OF CONTENTS ──────────────────────────── */
-  .toc {
-    background: var(--slate-light);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 40px;
-    margin: 60px 0;
-  }
-  .toc h2 { font-size: 20px; font-weight: 700; margin-bottom: 24px; color: var(--slate); }
-  .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; }
-  .toc-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--slate-mid);
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.15s;
-  }
-  .toc-item:hover { color: var(--teal); }
-  .toc-num {
-    width: 24px; height: 24px; border-radius: 6px;
-    background: var(--teal); color: white;
-    font-size: 11px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
+      /* ── TABLE OF CONTENTS ──────────────────────────── */
+      .toc {
+        background: var(--slate-light);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 40px;
+        margin: 60px 0;
+      }
+      .toc h2 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: var(--slate);
+      }
+      .toc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 40px;
+      }
+      .toc-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+        text-decoration: none;
+        color: var(--slate-mid);
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.15s;
+      }
+      .toc-item:hover {
+        color: var(--teal);
+      }
+      .toc-num {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        background: var(--teal);
+        color: white;
+        font-size: 11px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
 
-  /* ── SECTION HEADERS ────────────────────────────── */
-  .section { margin: 80px 0; }
-  .section-header {
-    display: flex; align-items: flex-start; gap: 20px;
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 2px solid var(--teal-mid);
-  }
-  .section-icon {
-    width: 56px; height: 56px; border-radius: 14px;
-    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px; flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(13,148,136,0.3);
-  }
-  .section-title h2 { font-size: 26px; font-weight: 700; color: var(--slate); margin-bottom: 4px; }
-  .section-title p  { font-size: 15px; color: var(--slate-mid); }
+      /* ── SECTION HEADERS ────────────────────────────── */
+      .section {
+        margin: 80px 0;
+      }
+      .section-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+        border-bottom: 2px solid var(--teal-mid);
+      }
+      .section-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+      }
+      .section-title h2 {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--slate);
+        margin-bottom: 4px;
+      }
+      .section-title p {
+        font-size: 15px;
+        color: var(--slate-mid);
+      }
 
-  /* ── CONTENT BLOCKS ─────────────────────────────── */
-  h3 { font-size: 17px; font-weight: 650; color: var(--slate); margin: 28px 0 12px; }
-  p  { color: var(--slate-mid); margin-bottom: 14px; }
-  ul, ol { color: var(--slate-mid); padding-left: 22px; margin-bottom: 14px; }
-  li { margin-bottom: 6px; }
-  strong { color: var(--slate); font-weight: 600; }
+      /* ── CONTENT BLOCKS ─────────────────────────────── */
+      h3 {
+        font-size: 17px;
+        font-weight: 650;
+        color: var(--slate);
+        margin: 28px 0 12px;
+      }
+      p {
+        color: var(--slate-mid);
+        margin-bottom: 14px;
+      }
+      ul,
+      ol {
+        color: var(--slate-mid);
+        padding-left: 22px;
+        margin-bottom: 14px;
+      }
+      li {
+        margin-bottom: 6px;
+      }
+      strong {
+        color: var(--slate);
+        font-weight: 600;
+      }
 
-  /* ── SCREENSHOT ─────────────────────────────────── */
-  .screenshot {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 0 0 1px var(--border);
-    margin: 24px 0 32px;
-  }
-  .screenshot img { width: 100%; display: block; }
-  .screenshot-caption {
-    background: var(--slate-light);
-    border-top: 1px solid var(--border);
-    padding: 10px 16px;
-    font-size: 12px;
-    color: var(--slate-mid);
-    font-style: italic;
-  }
+      /* ── SCREENSHOT ─────────────────────────────────── */
+      .screenshot {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.12),
+          0 0 0 1px var(--border);
+        margin: 24px 0 32px;
+      }
+      .screenshot img {
+        width: 100%;
+        display: block;
+      }
+      .screenshot-caption {
+        background: var(--slate-light);
+        border-top: 1px solid var(--border);
+        padding: 10px 16px;
+        font-size: 12px;
+        color: var(--slate-mid);
+        font-style: italic;
+      }
 
-  /* ── MOCK UI COMPONENTS ─────────────────────────── */
-  .mock-window {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    margin: 24px 0 32px;
-  }
-  .mock-titlebar {
-    background: var(--slate-light);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 16px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .mock-dot { width: 12px; height: 12px; border-radius: 50%; }
-  .mock-titlebar-label { font-size: 12px; color: var(--slate-mid); font-weight: 500; margin-left: 8px; }
-  .mock-body { padding: 20px; }
+      /* ── MOCK UI COMPONENTS ─────────────────────────── */
+      .mock-window {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        margin: 24px 0 32px;
+      }
+      .mock-titlebar {
+        background: var(--slate-light);
+        border-bottom: 1px solid var(--border);
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .mock-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .mock-titlebar-label {
+        font-size: 12px;
+        color: var(--slate-mid);
+        font-weight: 500;
+        margin-left: 8px;
+      }
+      .mock-body {
+        padding: 20px;
+      }
 
-  .sidebar-mock {
-    display: flex; gap: 0;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    margin: 24px 0 32px;
-    min-height: 300px;
-  }
-  .sidebar-mock-nav {
-    width: 220px;
-    background: var(--slate);
-    padding: 20px 0;
-    flex-shrink: 0;
-  }
-  .nav-logo { padding: 0 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 12px; }
-  .nav-logo-text { color: white; font-weight: 700; font-size: 15px; }
-  .nav-logo-sub  { color: rgba(255,255,255,0.5); font-size: 11px; }
-  .nav-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 9px 16px; font-size: 13px; color: rgba(255,255,255,0.65);
-    cursor: default;
-  }
-  .nav-item.active { background: var(--teal); color: white; font-weight: 600; }
-  .nav-item.active .nav-dot { background: rgba(255,255,255,0.4); }
-  .nav-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); flex-shrink: 0; }
-  .sidebar-mock-content { flex: 1; padding: 24px; background: #f8fafc; }
+      .sidebar-mock {
+        display: flex;
+        gap: 0;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        margin: 24px 0 32px;
+        min-height: 300px;
+      }
+      .sidebar-mock-nav {
+        width: 220px;
+        background: var(--slate);
+        padding: 20px 0;
+        flex-shrink: 0;
+      }
+      .nav-logo {
+        padding: 0 16px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 12px;
+      }
+      .nav-logo-text {
+        color: white;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .nav-logo-sub {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 11px;
+      }
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 16px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.65);
+        cursor: default;
+      }
+      .nav-item.active {
+        background: var(--teal);
+        color: white;
+        font-weight: 600;
+      }
+      .nav-item.active .nav-dot {
+        background: rgba(255, 255, 255, 0.4);
+      }
+      .nav-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        flex-shrink: 0;
+      }
+      .sidebar-mock-content {
+        flex: 1;
+        padding: 24px;
+        background: #f8fafc;
+      }
 
-  /* ── STAT CARDS ─────────────────────────────────── */
-  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
-  .stat-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 16px;
-  }
-  .stat-label { font-size: 10px; font-weight: 600; color: var(--slate-mid); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-  .stat-value { font-size: 20px; font-weight: 700; color: var(--slate); }
-  .stat-value.teal { color: var(--teal); }
+      /* ── STAT CARDS ─────────────────────────────────── */
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .stat-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 14px 16px;
+      }
+      .stat-label {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--slate-mid);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+      }
+      .stat-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--slate);
+      }
+      .stat-value.teal {
+        color: var(--teal);
+      }
 
-  /* ── CASE ROW ───────────────────────────────────── */
-  .case-table { width: 100%; border-collapse: collapse; }
-  .case-table th { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--slate-mid); padding: 8px 12px; text-align: left; border-bottom: 2px solid var(--border); }
-  .case-table td { padding: 11px 12px; font-size: 13px; border-bottom: 1px solid var(--border); color: var(--slate-mid); }
-  .case-table tr:last-child td { border-bottom: none; }
-  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 100px; font-size: 11px; font-weight: 600; }
-  .badge-active { background: #fef3c7; color: #92400e; }
-  .badge-closed { background: #d1fae5; color: #065f46; }
-  .badge-new    { background: #dbeafe; color: #1e40af; }
-  .badge-teal   { background: var(--teal-mid); color: var(--teal-dark); }
+      /* ── CASE ROW ───────────────────────────────────── */
+      .case-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .case-table th {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--slate-mid);
+        padding: 8px 12px;
+        text-align: left;
+        border-bottom: 2px solid var(--border);
+      }
+      .case-table td {
+        padding: 11px 12px;
+        font-size: 13px;
+        border-bottom: 1px solid var(--border);
+        color: var(--slate-mid);
+      }
+      .case-table tr:last-child td {
+        border-bottom: none;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 9px;
+        border-radius: 100px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .badge-active {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .badge-closed {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .badge-new {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .badge-teal {
+        background: var(--teal-mid);
+        color: var(--teal-dark);
+      }
 
-  /* ── BELL ICON ROW ──────────────────────────────── */
-  .bell-row {
-    display: flex; align-items: center; gap: 12px;
-    background: white; border: 1px solid var(--border);
-    border-radius: 10px; padding: 14px 18px;
-    margin-bottom: 10px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-  .bell-icon { font-size: 20px; }
-  .bell-label { flex: 1; font-size: 14px; font-weight: 500; color: var(--slate); }
-  .bell-sub   { font-size: 12px; color: var(--slate-mid); }
-  .toggle { width: 40px; height: 22px; border-radius: 11px; background: var(--teal); position: relative; flex-shrink: 0; }
-  .toggle::after { content: ''; position: absolute; top: 3px; right: 3px; width: 16px; height: 16px; border-radius: 50%; background: white; }
-  .toggle.off { background: #cbd5e1; }
-  .toggle.off::after { right: auto; left: 3px; }
+      /* ── BELL ICON ROW ──────────────────────────────── */
+      .bell-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 14px 18px;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      }
+      .bell-icon {
+        font-size: 20px;
+      }
+      .bell-label {
+        flex: 1;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--slate);
+      }
+      .bell-sub {
+        font-size: 12px;
+        color: var(--slate-mid);
+      }
+      .toggle {
+        width: 40px;
+        height: 22px;
+        border-radius: 11px;
+        background: var(--teal);
+        position: relative;
+        flex-shrink: 0;
+      }
+      .toggle::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: white;
+      }
+      .toggle.off {
+        background: #cbd5e1;
+      }
+      .toggle.off::after {
+        right: auto;
+        left: 3px;
+      }
 
-  /* ── MESSAGE MOCK ───────────────────────────────── */
-  .message-bubble {
-    background: var(--teal-light);
-    border: 1px solid var(--teal-mid);
-    border-radius: 12px 12px 12px 4px;
-    padding: 14px 18px;
-    margin-bottom: 14px;
-    max-width: 75%;
-  }
-  .message-bubble.right {
-    margin-left: auto;
-    background: white;
-    border-color: var(--border);
-    border-radius: 12px 12px 4px 12px;
-  }
-  .message-sender { font-size: 11px; font-weight: 700; color: var(--teal); margin-bottom: 4px; }
-  .message-sender.right { color: var(--slate-mid); }
-  .message-text { font-size: 13px; color: var(--slate); }
-  .message-time { font-size: 11px; color: var(--slate-mid); margin-top: 6px; }
+      /* ── MESSAGE MOCK ───────────────────────────────── */
+      .message-bubble {
+        background: var(--teal-light);
+        border: 1px solid var(--teal-mid);
+        border-radius: 12px 12px 12px 4px;
+        padding: 14px 18px;
+        margin-bottom: 14px;
+        max-width: 75%;
+      }
+      .message-bubble.right {
+        margin-left: auto;
+        background: white;
+        border-color: var(--border);
+        border-radius: 12px 12px 4px 12px;
+      }
+      .message-sender {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--teal);
+        margin-bottom: 4px;
+      }
+      .message-sender.right {
+        color: var(--slate-mid);
+      }
+      .message-text {
+        font-size: 13px;
+        color: var(--slate);
+      }
+      .message-time {
+        font-size: 11px;
+        color: var(--slate-mid);
+        margin-top: 6px;
+      }
 
-  /* ── CALLOUT BOXES ──────────────────────────────── */
-  .callout {
-    border-radius: 10px; padding: 16px 20px;
-    margin: 20px 0; border-left: 4px solid;
-  }
-  .callout-tip   { background: #f0fdfa; border-color: var(--teal); }
-  .callout-note  { background: #fffbeb; border-color: var(--accent); }
-  .callout-warn  { background: #fef2f2; border-color: #ef4444; }
-  .callout-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-  .callout-tip  .callout-title { color: var(--teal-dark); }
-  .callout-note .callout-title { color: #92400e; }
-  .callout-warn .callout-title { color: #991b1b; }
-  .callout p { margin: 0; font-size: 13px; }
+      /* ── CALLOUT BOXES ──────────────────────────────── */
+      .callout {
+        border-radius: 10px;
+        padding: 16px 20px;
+        margin: 20px 0;
+        border-left: 4px solid;
+      }
+      .callout-tip {
+        background: #f0fdfa;
+        border-color: var(--teal);
+      }
+      .callout-note {
+        background: #fffbeb;
+        border-color: var(--accent);
+      }
+      .callout-warn {
+        background: #fef2f2;
+        border-color: #ef4444;
+      }
+      .callout-title {
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .callout-tip .callout-title {
+        color: var(--teal-dark);
+      }
+      .callout-note .callout-title {
+        color: #92400e;
+      }
+      .callout-warn .callout-title {
+        color: #991b1b;
+      }
+      .callout p {
+        margin: 0;
+        font-size: 13px;
+      }
 
-  /* ── STEP LIST ──────────────────────────────────── */
-  .steps { list-style: none; padding: 0; counter-reset: step-counter; }
-  .steps li {
-    display: flex; gap: 16px; align-items: flex-start;
-    padding: 14px 0; border-bottom: 1px solid var(--border);
-    counter-increment: step-counter;
-  }
-  .steps li:last-child { border-bottom: none; }
-  .step-num {
-    width: 30px; height: 30px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-    color: white; font-size: 13px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 1px;
-  }
-  .step-content { flex: 1; }
-  .step-content strong { display: block; font-size: 14px; margin-bottom: 2px; color: var(--slate); }
-  .step-content span { font-size: 13px; color: var(--slate-mid); }
+      /* ── STEP LIST ──────────────────────────────────── */
+      .steps {
+        list-style: none;
+        padding: 0;
+        counter-reset: step-counter;
+      }
+      .steps li {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        counter-increment: step-counter;
+      }
+      .steps li:last-child {
+        border-bottom: none;
+      }
+      .step-num {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+        color: white;
+        font-size: 13px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .step-content {
+        flex: 1;
+      }
+      .step-content strong {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 2px;
+        color: var(--slate);
+      }
+      .step-content span {
+        font-size: 13px;
+        color: var(--slate-mid);
+      }
 
-  /* ── FEATURE GRID ───────────────────────────────── */
-  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
-  .feature-card {
-    background: var(--slate-light);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-  }
-  .feature-card-icon { font-size: 24px; margin-bottom: 10px; }
-  .feature-card h4 { font-size: 14px; font-weight: 650; color: var(--slate); margin-bottom: 6px; }
-  .feature-card p { font-size: 13px; color: var(--slate-mid); margin: 0; }
+      /* ── FEATURE GRID ───────────────────────────────── */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 20px 0;
+      }
+      .feature-card {
+        background: var(--slate-light);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+      }
+      .feature-card-icon {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .feature-card h4 {
+        font-size: 14px;
+        font-weight: 650;
+        color: var(--slate);
+        margin-bottom: 6px;
+      }
+      .feature-card p {
+        font-size: 13px;
+        color: var(--slate-mid);
+        margin: 0;
+      }
 
-  /* ── ORG MATRIX ─────────────────────────────────── */
-  .matrix { width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; }
-  .matrix th, .matrix td { padding: 10px 14px; border: 1px solid var(--border); font-size: 13px; }
-  .matrix th { background: var(--slate); color: white; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .matrix td { background: white; color: var(--slate-mid); }
-  .matrix td:first-child { font-weight: 500; color: var(--slate); }
-  .check { color: var(--teal); font-size: 16px; }
-  .cross { color: #ef4444; font-size: 16px; }
+      /* ── ORG MATRIX ─────────────────────────────────── */
+      .matrix {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .matrix th,
+      .matrix td {
+        padding: 10px 14px;
+        border: 1px solid var(--border);
+        font-size: 13px;
+      }
+      .matrix th {
+        background: var(--slate);
+        color: white;
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .matrix td {
+        background: white;
+        color: var(--slate-mid);
+      }
+      .matrix td:first-child {
+        font-weight: 500;
+        color: var(--slate);
+      }
+      .check {
+        color: var(--teal);
+        font-size: 16px;
+      }
+      .cross {
+        color: #ef4444;
+        font-size: 16px;
+      }
 
-  /* ── FOOTER ─────────────────────────────────────── */
-  .guide-footer {
-    background: var(--slate);
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    padding: 40px;
-    margin-top: 80px;
-    font-size: 13px;
-  }
-  .guide-footer strong { color: white; }
+      /* ── FOOTER ─────────────────────────────────────── */
+      .guide-footer {
+        background: var(--slate);
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        padding: 40px;
+        margin-top: 80px;
+        font-size: 13px;
+      }
+      .guide-footer strong {
+        color: white;
+      }
 
-  /* ── DIVIDER ─────────────────────────────────────── */
-  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+      /* ── DIVIDER ─────────────────────────────────────── */
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 40px 0;
+      }
 
-  /* ── PRINT ──────────────────────────────────────── */
-  @media print {
-    .cover { min-height: auto; padding: 80px 60px; }
-    .section { page-break-inside: avoid; }
-  }
+      /* ── PRINT ──────────────────────────────────────── */
+      @media print {
+        .cover {
+          min-height: auto;
+          padding: 80px 60px;
+        }
+        .section {
+          page-break-inside: avoid;
+        }
+      }
 
-  @media (max-width: 640px) {
-    .toc-grid { grid-template-columns: 1fr; }
-    .stat-grid { grid-template-columns: 1fr 1fr; }
-    .feature-grid { grid-template-columns: 1fr; }
-    .sidebar-mock-nav { display: none; }
-    .cover h1 { font-size: 32px; }
-  }
-</style>
-</head>
-<body>
-
-<!-- ══════════════════════════════════════════════════
+      @media (max-width: 640px) {
+        .toc-grid {
+          grid-template-columns: 1fr;
+        }
+        .stat-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+        .sidebar-mock-nav {
+          display: none;
+        }
+        .cover h1 {
+          font-size: 32px;
+        }
+      }
+    </style>
+    <style>
+      .pdf-btn {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 1000;
+        background: var(--teal);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 16px rgba(13, 148, 136, 0.35);
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        transition: background 0.15s;
+      }
+      .pdf-btn:hover {
+        background: var(--teal-dark);
+      }
+      @media print {
+        .pdf-btn {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ══════════════════════════════════════════════════
      COVER PAGE
 ══════════════════════════════════════════════════ -->
-<div class="cover">
-  <div class="cover-logo">⚖️</div>
-  <h1>Acclaim Portal</h1>
-  <h2>Complete User Guide</h2>
-  <div class="cover-divider"></div>
-  <p style="opacity:0.8; max-width:500px; font-size:16px; line-height:1.7;">
-    Everything you need to know about managing your debt recovery cases, communicating with the Acclaim team, and getting the most from the portal.
-  </p>
-  <div class="cover-badges">
-    <span class="cover-badge">📁 Case Management</span>
-    <span class="cover-badge">💬 Secure Messaging</span>
-    <span class="cover-badge">📄 Documents</span>
-    <span class="cover-badge">🔔 Notifications</span>
-    <span class="cover-badge">📊 Reports</span>
-    <span class="cover-badge">👑 Owner Controls</span>
-  </div>
-  <p class="cover-meta" style="margin-top:48px;">Chadwick Lawrence LLP · Acclaim Credit Management &amp; Recovery · acclaim-api-prod-uks-001.azurewebsites.net</p>
-</div>
+    <div class="cover">
+      <div class="cover-logo">
+        <img src="acclaim-rose.png" alt="Acclaim Logo" />
+      </div>
+      <h1>Acclaim Portal</h1>
+      <h2>Complete User Guide</h2>
+      <div class="cover-divider"></div>
+      <p
+        style="
+          color: white;
+          max-width: 500px;
+          font-size: 16px;
+          line-height: 1.7;
+        "
+      >
+        Everything you need to know about managing your debt recovery cases,
+        communicating with the Acclaim team, and getting the most from the
+        portal.
+      </p>
+      <div class="cover-badges">
+        <span class="cover-badge">📁 Case Management</span>
+        <span class="cover-badge">💬 Secure Messaging</span>
+        <span class="cover-badge">📄 Documents</span>
+        <span class="cover-badge">🔔 Notifications</span>
+        <span class="cover-badge">📊 Reports</span>
+        <span class="cover-badge">👑 Owner Controls</span>
+      </div>
+      <p class="cover-meta" style="margin-top: 48px">
+        Chadwick Lawrence LLP · Acclaim Credit Management &amp; Recovery ·
+        acclaim-api-prod-uks-001.azurewebsites.net
+      </p>
+    </div>
 
-<!-- ══════════════════════════════════════════════════
+    <!-- ══════════════════════════════════════════════════
      MAIN CONTENT
 ══════════════════════════════════════════════════ -->
-<div class="page">
+    <div class="page">
+      <!-- TABLE OF CONTENTS -->
+      <div class="toc">
+        <h2>📋 Table of Contents</h2>
+        <div class="toc-grid">
+          <a href="#signin" class="toc-item"
+            ><span class="toc-num">1</span> Signing In to the Portal</a
+          >
+          <a href="#dashboard" class="toc-item"
+            ><span class="toc-num">2</span> Your Dashboard</a
+          >
+          <a href="#cases" class="toc-item"
+            ><span class="toc-num">3</span> Viewing &amp; Managing Cases</a
+          >
+          <a href="#case-detail" class="toc-item"
+            ><span class="toc-num">4</span> Inside a Case</a
+          >
+          <a href="#muting" class="toc-item"
+            ><span class="toc-num">5</span> Muting Cases</a
+          >
+          <a href="#messaging" class="toc-item"
+            ><span class="toc-num">6</span> Sending Messages</a
+          >
+          <a href="#documents" class="toc-item"
+            ><span class="toc-num">7</span> Documents</a
+          >
+          <a href="#submit" class="toc-item"
+            ><span class="toc-num">8</span> Submitting a New Case</a
+          >
+          <a href="#notifications" class="toc-item"
+            ><span class="toc-num">9</span> Notification Settings</a
+          >
+          <a href="#owners" class="toc-item"
+            ><span class="toc-num">10</span> Organisation Owner Controls</a
+          >
+          <a href="#reports" class="toc-item"
+            ><span class="toc-num">11</span> Reports</a
+          >
+          <a href="#profile" class="toc-item"
+            ><span class="toc-num">12</span> Your Profile</a
+          >
+        </div>
+      </div>
 
-  <!-- TABLE OF CONTENTS -->
-  <div class="toc">
-    <h2>📋 Table of Contents</h2>
-    <div class="toc-grid">
-      <a href="#signin" class="toc-item"><span class="toc-num">1</span> Signing In to the Portal</a>
-      <a href="#dashboard" class="toc-item"><span class="toc-num">2</span> Your Dashboard</a>
-      <a href="#cases" class="toc-item"><span class="toc-num">3</span> Viewing &amp; Managing Cases</a>
-      <a href="#case-detail" class="toc-item"><span class="toc-num">4</span> Inside a Case</a>
-      <a href="#muting" class="toc-item"><span class="toc-num">5</span> Muting Cases</a>
-      <a href="#messaging" class="toc-item"><span class="toc-num">6</span> Sending Messages</a>
-      <a href="#documents" class="toc-item"><span class="toc-num">7</span> Documents</a>
-      <a href="#submit" class="toc-item"><span class="toc-num">8</span> Submitting a New Case</a>
-      <a href="#notifications" class="toc-item"><span class="toc-num">9</span> Notification Settings</a>
-      <a href="#owners" class="toc-item"><span class="toc-num">10</span> Organisation Owner Controls</a>
-      <a href="#reports" class="toc-item"><span class="toc-num">11</span> Reports</a>
-      <a href="#profile" class="toc-item"><span class="toc-num">12</span> Your Profile</a>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════
+      <!-- ══════════════════
        1. SIGNING IN
   ══════════════════ -->
-  <div class="section" id="signin">
-    <div class="section-header">
-      <div class="section-icon">🔐</div>
-      <div class="section-title">
-        <h2>1. Signing In to the Portal</h2>
-        <p>Accessing your Acclaim portal securely for the first time and on every visit.</p>
-      </div>
-    </div>
-
-    <p>The Acclaim portal is available at <strong>acclaim-api-prod-uks-001.azurewebsites.net/auth</strong>. Your account is created for you by Acclaim — you do not self-register.</p>
-
-    <div class="screenshot">
-      <img src="login-screenshot.jpg" alt="Acclaim Portal Login Page">
-      <div class="screenshot-caption">The Acclaim portal login page — sign in with Microsoft or use your password.</div>
-    </div>
-
-    <h3>Signing in with Microsoft (Recommended)</h3>
-    <p>If your organisation uses Microsoft 365, you can sign in using your existing work account. This is the easiest and most secure method.</p>
-    <ol class="steps">
-      <li>
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <strong>Click "Sign in with Microsoft"</strong>
-          <span>You will be taken to Microsoft's secure sign-in page.</span>
+      <div class="section" id="signin">
+        <div class="section-header">
+          <div class="section-icon">🔐</div>
+          <div class="section-title">
+            <h2>1. Signing In to the Portal</h2>
+            <p>
+              Accessing your Acclaim portal securely for the first time and on
+              every visit.
+            </p>
+          </div>
         </div>
-      </li>
-      <li>
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <strong>Enter your work email address</strong>
-          <span>Use the same email address your Acclaim account was set up with.</span>
+
+        <p>
+          The Acclaim portal is available at
+          <strong>acclaim-api-prod-uks-001.azurewebsites.net/auth</strong>. Your
+          account is created for you by Acclaim.
+        </p>
+
+        <div class="screenshot">
+          <img
+            src="login-screenshot.jpg"
+            alt="Acclaim Portal Login Page"
+            style="width: 100%; display: block"
+          />
+          <div class="screenshot-caption">
+            The Acclaim portal login page — sign in with Microsoft or use your
+            password.
+          </div>
         </div>
-      </li>
-      <li>
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <strong>Complete Microsoft sign-in</strong>
-          <span>Enter your password (and MFA if required) as you normally would for any Microsoft 365 service.</span>
-        </div>
-      </li>
-      <li>
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <strong>You're in</strong>
-          <span>You will be redirected straight to your dashboard.</span>
-        </div>
-      </li>
-    </ol>
 
-    <h3>Signing in with a Password</h3>
-    <p>If you don't use Microsoft 365, or prefer to use a password, open the <strong>"Need help signing in?"</strong> section at the bottom of the login card and click <strong>"Sign in another way"</strong>. This reveals the email and password fields.</p>
-    <p>On your very first login you will be given a <strong>temporary password</strong> by Acclaim. You will be prompted to set a new permanent password before you can access the portal.</p>
+        <h3>Signing in with Microsoft (Recommended)</h3>
+        <p>
+          If your organisation uses a supported identity provider such as
+          Microsoft 365, Google Workspace (Gmail), Yahoo, or another compatible
+          business account, you can sign in using your existing credentials.
+          This is the quickest, easiest and most secure way to access the
+          portal. existing work account. This is the easiest and most secure
+          method.
+        </p>
+        <ol class="steps">
+          <li>
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>Click "Sign in with Microsoft"</strong>
+              <span
+                >You will be redirected to Microsoft's secure sign-in page. If
+                this is your first time accessing the portal, you will need to
+                register with Chadwick Lawrence. To do this, select
+                <b>"No account? Create one!"</b> and follow the on-screen
+                instructions to complete the registration process (Use the same
+                email address your Acclaim account was set up with). Once your
+                account has been registered, you can simply sign in using your
+                email address and password on future visits.
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>Enter your work email address</strong>
+              <span
+                >Use the same email address your Acclaim account was set up
+                with.</span
+              >
+            </div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>Complete Microsoft sign-in</strong>
+              <span
+                >Enter your password (and MFA if required) as you normally would
+                for any Microsoft 365, Gmail or Yahoo service.</span
+              >
+            </div>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>You're in</strong>
+              <span>You will be redirected straight to your dashboard.</span>
+            </div>
+          </li>
+        </ol>
 
-    <div class="callout callout-tip">
-      <p class="callout-title">💡 Forgot your password?</p>
-      <p>Click <strong>"Forgot password?"</strong> on the sign-in form. You'll receive a one-time code by email which lets you log in and set a new password. The code expires in 15 minutes.</p>
-    </div>
-  </div>
 
 
-  <!-- ══════════════════
+      <!-- ══════════════════
        2. DASHBOARD
   ══════════════════ -->
-  <div class="section" id="dashboard">
-    <div class="section-header">
-      <div class="section-icon">📊</div>
-      <div class="section-title">
-        <h2>2. Your Dashboard</h2>
-        <p>A live overview of your entire case portfolio and recent activity.</p>
-      </div>
-    </div>
-
-    <p>The dashboard is the first thing you see after signing in. It gives you an at-a-glance summary of your recovery portfolio and highlights anything that needs your attention.</p>
-
-    <div class="sidebar-mock">
-      <div class="sidebar-mock-nav">
-        <div class="nav-logo">
-          <div class="nav-logo-text">⚖️ Acclaim</div>
-          <div class="nav-logo-sub">Credit Management</div>
-        </div>
-        <div class="nav-item active"><div class="nav-dot"></div> Dashboard</div>
-        <div class="nav-item"><div class="nav-dot"></div> Cases</div>
-        <div class="nav-item"><div class="nav-dot"></div> Messages</div>
-        <div class="nav-item"><div class="nav-dot"></div> Documents</div>
-        <div class="nav-item"><div class="nav-dot"></div> Reports</div>
-        <div class="nav-item"><div class="nav-dot"></div> Submit a Case</div>
-        <div class="nav-item"><div class="nav-dot"></div> Profile</div>
-      </div>
-      <div class="sidebar-mock-content">
-        <div style="font-size:13px; font-weight:700; color:#1e293b; margin-bottom:16px;">Live Case Statistics</div>
-        <div class="stat-grid">
-          <div class="stat-card"><div class="stat-label">Active Cases</div><div class="stat-value">24</div></div>
-          <div class="stat-card"><div class="stat-label">Outstanding Debt</div><div class="stat-value teal">£148,320</div></div>
-          <div class="stat-card"><div class="stat-label">Total Recovered</div><div class="stat-value">£52,800</div></div>
-          <div class="stat-card"><div class="stat-label">Closed Cases</div><div class="stat-value">11</div></div>
-        </div>
-        <div style="font-size:12px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px;">Recent Cases</div>
-        <div style="background:white; border-radius:8px; border:1px solid #e2e8f0; padding:10px 14px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f1f5f9; font-size:12px;">
-            <span style="color:#1e293b; font-weight:500;">Smith &amp; Sons Ltd</span>
-            <span class="badge badge-active">Active</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f1f5f9; font-size:12px;">
-            <span style="color:#1e293b; font-weight:500;">J. Robertson</span>
-            <span class="badge badge-new">New</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 0; font-size:12px;">
-            <span style="color:#1e293b; font-weight:500;">Brightfield Interiors</span>
-            <span class="badge badge-closed">Closed</span>
+      <div class="section" id="dashboard">
+        <div class="section-header">
+          <div class="section-icon">📊</div>
+          <div class="section-title">
+            <h2>2. Your Dashboard</h2>
+            <p>
+              A live overview of your entire case portfolio and recent activity.
+            </p>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card-icon">📈</div>
-        <h4>Live Statistics</h4>
-        <p>Shows your total active cases, outstanding debt value, recovered amount, and closed cases — updated in real time.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🕐</div>
-        <h4>Recent Cases</h4>
-        <p>The five most recently updated cases appear here for quick access, with their current status displayed.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">💬</div>
-        <h4>Recent Messages</h4>
-        <p>Your latest incoming messages from the Acclaim team are shown here so you never miss an update.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🔄</div>
-        <h4>Auto-Refresh</h4>
-        <p>The dashboard refreshes automatically every 10 seconds — you always see the latest data without needing to reload.</p>
-      </div>
-    </div>
+        <p>
+          The dashboard is the first thing you see after signing in. It gives
+          you an at-a-glance summary of your recovery portfolio and highlights
+          anything that needs your attention.
+        </p>
 
-    <div class="callout callout-note">
-      <p class="callout-title">ℹ️ Multi-Organisation Users</p>
-      <p>If your account is linked to more than one organisation, the dashboard will show combined statistics across all of them by default. You can filter to a specific organisation using the selector at the top of the page.</p>
-    </div>
-  </div>
+        <div class="sidebar-mock">
+          <div class="sidebar-mock-nav">
+            <div class="nav-logo">
+              <div class="nav-logo-text">⚖️ Acclaim</div>
+              <div class="nav-logo-sub">Credit Management</div>
+            </div>
+            <div class="nav-item active">
+              <div class="nav-dot"></div>
+              Dashboard
+            </div>
+            <div class="nav-item">
+              <div class="nav-dot"></div>
+              Cases
+            </div>
+            <div class="nav-item">
+              <div class="nav-dot"></div>
+              Messages
+            </div>
+            <div class="nav-item">
+              <div class="nav-dot"></div>
+              Documents
+            </div>
+            <div class="nav-item">
+              <div class="nav-dot"></div>
+              Reports
+            </div>
+            <div class="nav-item">
+              <div class="nav-dot"></div>
+              Submit a Case
+            </div>
+            <div class="nav-item">
+              <div class="nav-dot"></div>
+              Profile
+            </div>
+          </div>
+          <div class="sidebar-mock-content">
+            <div
+              style="
+                font-size: 13px;
+                font-weight: 700;
+                color: #1e293b;
+                margin-bottom: 16px;
+              "
+            >
+              Live Case Statistics
+            </div>
+            <div class="stat-grid">
+              <div class="stat-card">
+                <div class="stat-label">Active Cases</div>
+                <div class="stat-value">24</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Outstanding Debt</div>
+                <div class="stat-value teal">£148,320</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Total Recovered</div>
+                <div class="stat-value">£52,800</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Closed Cases</div>
+                <div class="stat-value">11</div>
+              </div>
+            </div>
+            <div
+              style="
+                font-size: 12px;
+                font-weight: 700;
+                color: #475569;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 10px;
+              "
+            >
+              Recent Cases
+            </div>
+            <div
+              style="
+                background: white;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+                padding: 10px 14px;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  padding: 6px 0;
+                  border-bottom: 1px solid #f1f5f9;
+                  font-size: 12px;
+                "
+              >
+                <span style="color: #1e293b; font-weight: 500"
+                  >Smith &amp; Sons Ltd</span
+                >
+                <span class="badge badge-active">Active</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  padding: 6px 0;
+                  border-bottom: 1px solid #f1f5f9;
+                  font-size: 12px;
+                "
+              >
+                <span style="color: #1e293b; font-weight: 500"
+                  >J. Robertson</span
+                >
+                <span class="badge badge-new">New</span>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  padding: 6px 0;
+                  font-size: 12px;
+                "
+              >
+                <span style="color: #1e293b; font-weight: 500"
+                  >Brightfield Interiors</span
+                >
+                <span class="badge badge-closed">Closed</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-card-icon">📈</div>
+            <h4>Live Statistics</h4>
+            <p>
+              Shows your total active cases, outstanding debt value, recovered
+              amount, and closed cases — updated in real time.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">🕐</div>
+            <h4>Recent Cases</h4>
+            <p>
+              The five most recently updated cases appear here for quick access,
+              with their current status displayed.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">💬</div>
+            <h4>Recent Messages</h4>
+            <p>
+              Your latest incoming messages from the Acclaim team are shown here
+              so you never miss an update.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">🔄</div>
+            <h4>Auto-Refresh</h4>
+            <p>
+              The dashboard refreshes automatically every 10 seconds — you
+              always see the latest data without needing to reload.
+            </p>
+          </div>
+        </div>
 
-  <!-- ══════════════════
+        <div class="callout callout-note">
+          <p class="callout-title">ℹ️ Multi-Organisation Users</p>
+          <p>
+            If your account is linked to more than one organisation, the
+            dashboard will show combined statistics across all of them by
+            default. You can filter to a specific organisation using the
+            selector at the top of the page.
+          </p>
+        </div>
+      </div>
+
+      <!-- ══════════════════
        3. CASES
   ══════════════════ -->
-  <div class="section" id="cases">
-    <div class="section-header">
-      <div class="section-icon">📁</div>
-      <div class="section-title">
-        <h2>3. Viewing &amp; Managing Cases</h2>
-        <p>Browse, search, and filter your entire case portfolio in one place.</p>
-      </div>
-    </div>
-
-    <p>Click <strong>Cases</strong> in the sidebar to open your full case list. Every debt recovery case Acclaim is managing on your behalf appears here.</p>
-
-    <div class="mock-window">
-      <div class="mock-titlebar">
-        <div class="mock-dot" style="background:#ef4444;"></div>
-        <div class="mock-dot" style="background:#f59e0b;"></div>
-        <div class="mock-dot" style="background:#22c55e;"></div>
-        <span class="mock-titlebar-label">Cases</span>
-      </div>
-      <div class="mock-body">
-        <div style="display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap;">
-          <div style="flex:1; min-width:180px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; font-size:12px; color:#94a3b8;">🔍 Search by debtor, reference…</div>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:8px 14px; font-size:12px; color:#64748b;">Status ▾</div>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:8px 14px; font-size:12px; color:#64748b;">Stage ▾</div>
+      <div class="section" id="cases">
+        <div class="section-header">
+          <div class="section-icon">📁</div>
+          <div class="section-title">
+            <h2>3. Viewing &amp; Managing Cases</h2>
+            <p>
+              Browse, search, and filter your entire case portfolio in one
+              place.
+            </p>
+          </div>
         </div>
-        <table class="case-table">
+
+        <p>
+          Click <strong>Cases</strong> in the sidebar to open your full case
+          list. Every debt recovery case Acclaim is managing on your behalf
+          appears here.
+        </p>
+
+        <div class="mock-window">
+          <div class="mock-titlebar">
+            <div class="mock-dot" style="background: #ef4444"></div>
+            <div class="mock-dot" style="background: #f59e0b"></div>
+            <div class="mock-dot" style="background: #22c55e"></div>
+            <span class="mock-titlebar-label">Cases</span>
+          </div>
+          <div class="mock-body">
+            <div
+              style="
+                display: flex;
+                gap: 10px;
+                margin-bottom: 16px;
+                flex-wrap: wrap;
+              "
+            >
+              <div
+                style="
+                  flex: 1;
+                  min-width: 180px;
+                  background: #f8fafc;
+                  border: 1px solid #e2e8f0;
+                  border-radius: 8px;
+                  padding: 8px 12px;
+                  font-size: 12px;
+                  color: #94a3b8;
+                "
+              >
+                🔍 Search by debtor, reference…
+              </div>
+              <div
+                style="
+                  background: #f8fafc;
+                  border: 1px solid #e2e8f0;
+                  border-radius: 8px;
+                  padding: 8px 14px;
+                  font-size: 12px;
+                  color: #64748b;
+                "
+              >
+                Status ▾
+              </div>
+              <div
+                style="
+                  background: #f8fafc;
+                  border: 1px solid #e2e8f0;
+                  border-radius: 8px;
+                  padding: 8px 14px;
+                  font-size: 12px;
+                  color: #64748b;
+                "
+              >
+                Stage ▾
+              </div>
+            </div>
+            <table class="case-table">
+              <thead>
+                <tr>
+                  <th>Case / Debtor</th>
+                  <th>Reference</th>
+                  <th>Status</th>
+                  <th>Stage</th>
+                  <th>Outstanding</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong style="color: #1e293b">Smith &amp; Sons Ltd</strong>
+                  </td>
+                  <td>ACC-00124</td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td>Claim</td>
+                  <td><strong style="color: #1e293b">£12,450.00</strong></td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #1e293b">J. Robertson</strong></td>
+                  <td>ACC-00131</td>
+                  <td><span class="badge badge-new">New</span></td>
+                  <td>Initial Contact</td>
+                  <td><strong style="color: #1e293b">£3,200.00</strong></td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong style="color: #1e293b"
+                      >Brightfield Interiors</strong
+                    >
+                  </td>
+                  <td>ACC-00098</td>
+                  <td><span class="badge badge-closed">Closed</span></td>
+                  <td>Paid</td>
+                  <td><strong style="color: #1e293b">£0.00</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3>Searching Cases</h3>
+        <p>Use the search bar to instantly find a case. You can search by:</p>
+        <ul>
+          <li>
+            <strong>Debtor name</strong> — the individual or company owing the
+            debt
+          </li>
+          <li>
+            <strong>Account reference</strong> — Acclaim's case reference (e.g.
+            ACC-00124)
+          </li>
+          <li><strong>Debtor email address</strong></li>
+          <li>
+            <strong>Organisation name</strong> (if you belong to multiple
+            organisations)
+          </li>
+        </ul>
+
+        <h3>Filtering Cases</h3>
+        <p>
+          Use the <strong>Status</strong> and <strong>Stage</strong> filters to
+          narrow down the list:
+        </p>
+        <table class="matrix" style="margin-bottom: 20px">
           <thead>
             <tr>
-              <th>Case / Debtor</th>
-              <th>Reference</th>
-              <th>Status</th>
-              <th>Stage</th>
-              <th>Outstanding</th>
+              <th>Filter Type</th>
+              <th>Available Options</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong style="color:#1e293b;">Smith &amp; Sons Ltd</strong></td>
-              <td>ACC-00124</td>
-              <td><span class="badge badge-active">Active</span></td>
-              <td>Claim</td>
-              <td><strong style="color:#1e293b;">£12,450.00</strong></td>
+              <td>Status</td>
+              <td>Active, New, Closed</td>
             </tr>
             <tr>
-              <td><strong style="color:#1e293b;">J. Robertson</strong></td>
-              <td>ACC-00131</td>
-              <td><span class="badge badge-new">New</span></td>
-              <td>Initial Contact</td>
-              <td><strong style="color:#1e293b;">£3,200.00</strong></td>
-            </tr>
-            <tr>
-              <td><strong style="color:#1e293b;">Brightfield Interiors</strong></td>
-              <td>ACC-00098</td>
-              <td><span class="badge badge-closed">Closed</span></td>
-              <td>Paid</td>
-              <td><strong style="color:#1e293b;">£0.00</strong></td>
+              <td>Stage</td>
+              <td>
+                Initial Contact, Pre-Legal, Claim, Judgment, Enforcement,
+                Payment Plan, Paid
+              </td>
             </tr>
           </tbody>
         </table>
+
+        <div class="callout callout-tip">
+          <p class="callout-title">💡 Tip</p>
+          <p>
+            By default, only <strong>active cases</strong> are shown. To view
+            closed cases or your entire portfolio, change the Status filter to
+            "All" or "Closed".
+          </p>
+        </div>
       </div>
-    </div>
 
-    <h3>Searching Cases</h3>
-    <p>Use the search bar to instantly find a case. You can search by:</p>
-    <ul>
-      <li><strong>Debtor name</strong> — the individual or company owing the debt</li>
-      <li><strong>Account reference</strong> — the unique case reference (e.g. ACC-00124)</li>
-      <li><strong>Debtor email address</strong></li>
-      <li><strong>Organisation name</strong> (if you belong to multiple organisations)</li>
-    </ul>
-
-    <h3>Filtering Cases</h3>
-    <p>Use the <strong>Status</strong> and <strong>Stage</strong> filters to narrow down the list:</p>
-    <table class="matrix" style="margin-bottom:20px;">
-      <thead><tr><th>Filter Type</th><th>Available Options</th></tr></thead>
-      <tbody>
-        <tr><td>Status</td><td>Active, New, Closed</td></tr>
-        <tr><td>Stage</td><td>Initial Contact, Pre-Legal, Claim, Judgment, Enforcement, Payment Plan, Paid</td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout callout-tip">
-      <p class="callout-title">💡 Tip</p>
-      <p>By default, only <strong>active cases</strong> are shown. To view closed cases or your entire portfolio, change the Status filter to "All" or "Closed".</p>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════
+      <!-- ══════════════════
        4. CASE DETAIL
   ══════════════════ -->
-  <div class="section" id="case-detail">
-    <div class="section-header">
-      <div class="section-icon">🔍</div>
-      <div class="section-title">
-        <h2>4. Inside a Case</h2>
-        <p>A full picture of every case — debtor details, financials, activity timeline, messages and documents.</p>
-      </div>
-    </div>
-
-    <p>Click on any case in the list to open its detail view. The case is organised into tabs so you can quickly find the information you need.</p>
-
-    <div class="mock-window">
-      <div class="mock-titlebar">
-        <div class="mock-dot" style="background:#ef4444;"></div>
-        <div class="mock-dot" style="background:#f59e0b;"></div>
-        <div class="mock-dot" style="background:#22c55e;"></div>
-        <span class="mock-titlebar-label">Case Detail — Smith &amp; Sons Ltd · ACC-00124</span>
-      </div>
-      <div class="mock-body">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
-          <div>
-            <div style="font-size:18px; font-weight:700; color:#1e293b;">Smith &amp; Sons Ltd</div>
-            <div style="font-size:12px; color:#64748b;">ACC-00124 · <span class="badge badge-active">Active</span> · Claim Stage</div>
-          </div>
-          <div style="display:flex; gap:8px; align-items:center;">
-            <span style="font-size:18px;" title="Mute case">🔔</span>
+      <div class="section" id="case-detail">
+        <div class="section-header">
+          <div class="section-icon">🔍</div>
+          <div class="section-title">
+            <h2>4. Inside a Case</h2>
+            <p>
+              A full picture of every case — debtor details, financials,
+              activity timeline, messages and documents.
+            </p>
           </div>
         </div>
-        <div style="display:flex; gap:0; border-bottom:2px solid #e2e8f0; margin-bottom:16px;">
-          <div style="padding:8px 16px; font-size:13px; font-weight:600; color:#0d9488; border-bottom:2px solid #0d9488; margin-bottom:-2px; cursor:default;">Case Info</div>
-          <div style="padding:8px 16px; font-size:13px; color:#94a3b8; cursor:default;">Activity</div>
-          <div style="padding:8px 16px; font-size:13px; color:#94a3b8; cursor:default;">Messages</div>
-          <div style="padding:8px 16px; font-size:13px; color:#94a3b8; cursor:default;">Documents</div>
-          <div style="padding:8px 16px; font-size:13px; color:#94a3b8; cursor:default;">Payments</div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-          <div style="background:#f8fafc; border-radius:8px; padding:14px;">
-            <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; margin-bottom:8px;">Debtor Details</div>
-            <div style="font-size:13px; color:#475569; margin-bottom:4px;"><strong style="color:#1e293b;">Smith &amp; Sons Ltd</strong></div>
-            <div style="font-size:13px; color:#475569;">14 Commerce Way, Leeds</div>
-            <div style="font-size:13px; color:#475569;">info@smithsons.co.uk</div>
+
+        <p>
+          Click on any case in the list to open its detail view. The case is
+          organised into tabs so you can quickly find the information you need.
+        </p>
+
+        <div class="mock-window">
+          <div class="mock-titlebar">
+            <div class="mock-dot" style="background: #ef4444"></div>
+            <div class="mock-dot" style="background: #f59e0b"></div>
+            <div class="mock-dot" style="background: #22c55e"></div>
+            <span class="mock-titlebar-label"
+              >Case Detail — Smith &amp; Sons Ltd · ACC-00124</span
+            >
           </div>
-          <div style="background:#f8fafc; border-radius:8px; padding:14px;">
-            <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; margin-bottom:8px;">Financial Summary</div>
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;"><span style="color:#475569;">Original Debt</span><strong style="color:#1e293b;">£14,000.00</strong></div>
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;"><span style="color:#475569;">Interest Added</span><strong style="color:#1e293b;">£350.00</strong></div>
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;"><span style="color:#475569;">Payments Made</span><strong style="color:#22c55e;">-£1,900.00</strong></div>
-            <div style="display:flex; justify-content:space-between; font-size:13px; border-top:1px solid #e2e8f0; padding-top:6px; margin-top:6px;"><span style="color:#475569; font-weight:600;">Outstanding</span><strong style="color:#0d9488; font-size:15px;">£12,450.00</strong></div>
+          <div class="mock-body">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+                gap: 10px;
+              "
+            >
+              <div>
+                <div style="font-size: 18px; font-weight: 700; color: #1e293b">
+                  Smith &amp; Sons Ltd
+                </div>
+                <div style="font-size: 12px; color: #64748b">
+                  ACC-00124 · <span class="badge badge-active">Active</span> ·
+                  Claim Stage
+                </div>
+              </div>
+              <div style="display: flex; gap: 8px; align-items: center">
+                <span style="font-size: 18px" title="Mute case">🔔</span>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                gap: 0;
+                border-bottom: 2px solid #e2e8f0;
+                margin-bottom: 16px;
+              "
+            >
+              <div
+                style="
+                  padding: 8px 16px;
+                  font-size: 13px;
+                  font-weight: 600;
+                  color: #0d9488;
+                  border-bottom: 2px solid #0d9488;
+                  margin-bottom: -2px;
+                  cursor: default;
+                "
+              >
+                Case Info
+              </div>
+              <div
+                style="
+                  padding: 8px 16px;
+                  font-size: 13px;
+                  color: #94a3b8;
+                  cursor: default;
+                "
+              >
+                Activity
+              </div>
+              <div
+                style="
+                  padding: 8px 16px;
+                  font-size: 13px;
+                  color: #94a3b8;
+                  cursor: default;
+                "
+              >
+                Messages
+              </div>
+              <div
+                style="
+                  padding: 8px 16px;
+                  font-size: 13px;
+                  color: #94a3b8;
+                  cursor: default;
+                "
+              >
+                Documents
+              </div>
+              <div
+                style="
+                  padding: 8px 16px;
+                  font-size: 13px;
+                  color: #94a3b8;
+                  cursor: default;
+                "
+              >
+                Payments
+              </div>
+            </div>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px"
+            >
+              <div
+                style="background: #f8fafc; border-radius: 8px; padding: 14px"
+              >
+                <div
+                  style="
+                    font-size: 11px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    color: #94a3b8;
+                    margin-bottom: 8px;
+                  "
+                >
+                  Debtor Details
+                </div>
+                <div
+                  style="font-size: 13px; color: #475569; margin-bottom: 4px"
+                >
+                  <strong style="color: #1e293b">Smith &amp; Sons Ltd</strong>
+                </div>
+                <div style="font-size: 13px; color: #475569">
+                  14 Commerce Way, Leeds
+                </div>
+                <div style="font-size: 13px; color: #475569">
+                  info@smithsons.co.uk
+                </div>
+              </div>
+              <div
+                style="background: #f8fafc; border-radius: 8px; padding: 14px"
+              >
+                <div
+                  style="
+                    font-size: 11px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    color: #94a3b8;
+                    margin-bottom: 8px;
+                  "
+                >
+                  Financial Summary
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 13px;
+                    margin-bottom: 4px;
+                  "
+                >
+                  <span style="color: #475569">Original Debt</span
+                  ><strong style="color: #1e293b">£14,000.00</strong>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 13px;
+                    margin-bottom: 4px;
+                  "
+                >
+                  <span style="color: #475569">Interest Added</span
+                  ><strong style="color: #1e293b">£350.00</strong>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 13px;
+                    margin-bottom: 4px;
+                  "
+                >
+                  <span style="color: #475569">Payments Made</span
+                  ><strong style="color: #22c55e">-£1,900.00</strong>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 13px;
+                    border-top: 1px solid #e2e8f0;
+                    padding-top: 6px;
+                    margin-top: 6px;
+                  "
+                >
+                  <span style="color: #475569; font-weight: 600"
+                    >Outstanding</span
+                  ><strong style="color: #0d9488; font-size: 15px"
+                    >£12,450.00</strong
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Case Tabs Explained</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-card-icon">ℹ️</div>
+            <h4>Case Info</h4>
+            <p>
+              Debtor contact details, address, debt amounts, costs added,
+              payments received, and the current outstanding balance.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">📋</div>
+            <h4>Activity Timeline</h4>
+            <p>
+              A full chronological log of every action taken on the case — stage
+              changes, payments, documents added, and messages sent.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">💬</div>
+            <h4>Messages</h4>
+            <p>
+              All messages linked to this specific case. Send a new message
+              directly from here and it will be associated with the case
+              automatically.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">📎</div>
+            <h4>Documents</h4>
+            <p>
+              All documents related to this case — uploaded by you or issued by
+              Acclaim (legal notices, agreements, court documents).
+            </p>
           </div>
         </div>
       </div>
-    </div>
 
-    <h3>Case Tabs Explained</h3>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card-icon">ℹ️</div>
-        <h4>Case Info</h4>
-        <p>Debtor contact details, address, debt amounts, costs added, payments received, and the current outstanding balance.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">📋</div>
-        <h4>Activity Timeline</h4>
-        <p>A full chronological log of every action taken on the case — stage changes, payments, documents added, and messages sent.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">💬</div>
-        <h4>Messages</h4>
-        <p>All messages linked to this specific case. Send a new message directly from here and it will be associated with the case automatically.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">📎</div>
-        <h4>Documents</h4>
-        <p>All documents related to this case — uploaded by you or issued by Acclaim (legal notices, agreements, court documents).</p>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════
+      <!-- ══════════════════
        5. MUTING CASES
   ══════════════════ -->
-  <div class="section" id="muting">
-    <div class="section-header">
-      <div class="section-icon">🔕</div>
-      <div class="section-title">
-        <h2>5. Muting Cases</h2>
-        <p>Control exactly which cases send you notifications, without losing access to any of them.</p>
-      </div>
-    </div>
-
-    <p>If your organisation has a large number of cases, you may find that you receive notification emails for every update — even cases that belong to a colleague and don't require your direct attention. <strong>Muting</strong> lets you silence those notifications on a case-by-case basis.</p>
-
-    <div class="callout callout-tip">
-      <p class="callout-title">💡 Why muting is useful</p>
-      <p>Imagine you manage 50 cases but 35 of them belong to a colleague. Muting those 35 cases means your inbox only receives updates on your 15 — keeping your notifications focused and relevant.</p>
-    </div>
-
-    <h3>How to Mute a Case</h3>
-    <ol class="steps">
-      <li>
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <strong>Open the case</strong>
-          <span>Click the case from your Cases list to open its detail view.</span>
-        </div>
-      </li>
-      <li>
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <strong>Find the bell icon at the top of the case</strong>
-          <span>A 🔔 bell icon appears in the case header, next to the case name.</span>
-        </div>
-      </li>
-      <li>
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <strong>Click the bell to mute</strong>
-          <span>The icon changes to 🔕 (bell with a line through it) to confirm the case is muted. You will no longer receive email notifications for this case.</span>
-        </div>
-      </li>
-      <li>
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <strong>To unmute — click it again</strong>
-          <span>Muting is never permanent. Click the 🔕 icon any time to restore notifications for that case.</span>
-        </div>
-      </li>
-    </ol>
-
-    <div class="mock-window">
-      <div class="mock-titlebar">
-        <div class="mock-dot" style="background:#ef4444;"></div>
-        <div class="mock-dot" style="background:#f59e0b;"></div>
-        <div class="mock-dot" style="background:#22c55e;"></div>
-        <span class="mock-titlebar-label">Case header — mute toggle</span>
-      </div>
-      <div class="mock-body">
-        <div style="display:flex; align-items:center; gap:16px; padding:4px 0;">
-          <div style="flex:1;">
-            <div style="font-size:16px; font-weight:700; color:#1e293b;">J. Robertson · ACC-00131</div>
-            <div style="font-size:12px; color:#64748b; margin-top:2px;"><span class="badge badge-active">Active</span> · Pre-Legal Stage</div>
-          </div>
-          <div style="display:flex; align-items:center; gap:6px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; padding:8px 14px; font-size:13px; color:#92400e;">
-            <span style="font-size:18px;">🔕</span>
-            <span style="font-weight:600;">Muted</span>
+      <div class="section" id="muting">
+        <div class="section-header">
+          <div class="section-icon">🔕</div>
+          <div class="section-title">
+            <h2>5. Muting Cases</h2>
+            <p>
+              Control exactly which cases send you notifications, without losing
+              access to any of them.
+            </p>
           </div>
         </div>
-        <div style="margin-top:14px; background:#fef9ee; border:1px solid #fde68a; border-radius:8px; padding:12px 14px; font-size:12px; color:#92400e;">
-          ⚠️ Notifications for this case are muted. You will not receive email updates for new messages or documents on this case.
+
+        <p>
+          If your organisation has a large number of cases, you may find that
+          you receive notification emails for every update — even cases that
+          belong to a colleague and don't require your direct attention.
+          <strong>Muting</strong> lets you silence those notifications on a
+          case-by-case basis.
+        </p>
+
+        <div class="callout callout-tip">
+          <p class="callout-title">💡 Why muting is useful</p>
+          <p>
+            Imagine you manage 50 cases but 35 of them belong to a colleague.
+            Muting those 35 cases means your inbox only receives updates on your
+            15 — keeping your notifications focused and relevant.
+          </p>
+        </div>
+
+        <h3>How to Mute a Case</h3>
+        <ol class="steps">
+          <li>
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>Open the case</strong>
+              <span
+                >Click the case from your Cases list to open its detail
+                view.</span
+              >
+            </div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>Find the bell icon at the top of the case</strong>
+              <span
+                >A 🔔 bell icon appears in the case header, next to the case
+                name.</span
+              >
+            </div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>Click the bell to mute</strong>
+              <span
+                >The icon changes to 🔕 (bell with a line through it) to confirm
+                the case is muted. You will no longer receive email
+                notifications for this case.</span
+              >
+            </div>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>To unmute — click it again</strong>
+              <span
+                >Muting is never permanent. Click the 🔕 icon any time to
+                restore notifications for that case.</span
+              >
+            </div>
+          </li>
+        </ol>
+
+        <div class="mock-window">
+          <div class="mock-titlebar">
+            <div class="mock-dot" style="background: #ef4444"></div>
+            <div class="mock-dot" style="background: #f59e0b"></div>
+            <div class="mock-dot" style="background: #22c55e"></div>
+            <span class="mock-titlebar-label">Case header — mute toggle</span>
+          </div>
+          <div class="mock-body">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                padding: 4px 0;
+              "
+            >
+              <div style="flex: 1">
+                <div style="font-size: 16px; font-weight: 700; color: #1e293b">
+                  J. Robertson · ACC-00131
+                </div>
+                <div style="font-size: 12px; color: #64748b; margin-top: 2px">
+                  <span class="badge badge-active">Active</span> · Pre-Legal
+                  Stage
+                </div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 6px;
+                  background: #fef3c7;
+                  border: 1px solid #fde68a;
+                  border-radius: 8px;
+                  padding: 8px 14px;
+                  font-size: 13px;
+                  color: #92400e;
+                "
+              >
+                <span style="font-size: 18px">🔕</span>
+                <span style="font-weight: 600">Muted</span>
+              </div>
+            </div>
+            <div
+              style="
+                margin-top: 14px;
+                background: #fef9ee;
+                border: 1px solid #fde68a;
+                border-radius: 8px;
+                padding: 12px 14px;
+                font-size: 12px;
+                color: #92400e;
+              "
+            >
+              ⚠️ Notifications for this case are muted. You will not receive
+              email updates for new messages or documents on this case.
+            </div>
+          </div>
+        </div>
+<p> You can also mute or unmute cases from within your User Profile settings. A list of your cases will be displayed, with a toggle beside each one. Simply switch the toggle on or off to manage notifications, and easily identify which cases are currently muted. </p>
+        <h3>Auto-Mute New Cases</h3>
+        <p>
+          You can also choose to
+          <strong>automatically mute all new cases</strong> as they are added to
+          your organisation. This means you start from silence and only unmute
+          the cases you want to hear about. This setting is found in your
+          <strong>Profile → Notification Preferences</strong>.
+        </p>
+
+        <h3>Unmuting to Cover for a Colleague</h3>
+        <p>
+          Muting is flexible. If a colleague is on leave and you need to take
+          over their cases, simply open each of their cases and click the muted
+          bell icon to unmute — you'll immediately start receiving updates for
+          those cases. Once they return, you can mute them again.
+        </p>
+
+        <div class="callout callout-note">
+          <p class="callout-title">📌 Important to know</p>
+          <p>
+            Muting only affects <strong>your</strong> email notifications. The
+            case is still fully visible to you and you can still read messages
+            and documents — you just won't be emailed about new ones.
+          </p>
         </div>
       </div>
-    </div>
 
-    <h3>Auto-Mute New Cases</h3>
-    <p>You can also choose to <strong>automatically mute all new cases</strong> as they are added to your organisation. This means you start from silence and only unmute the cases you want to hear about. This setting is found in your <strong>Profile → Notification Preferences</strong>.</p>
-
-    <h3>Unmuting to Cover for a Colleague</h3>
-    <p>Muting is flexible. If a colleague is on leave and you need to take over their cases, simply open each of their cases and click the muted bell icon to unmute — you'll immediately start receiving updates for those cases. Once they return, you can mute them again.</p>
-
-    <div class="callout callout-note">
-      <p class="callout-title">📌 Important to know</p>
-      <p>Muting only affects <strong>your</strong> email notifications. The case is still fully visible to you and you can still read messages and documents — you just won't be emailed about new ones.</p>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════
+      <!-- ══════════════════
        6. MESSAGING
   ══════════════════ -->
-  <div class="section" id="messaging">
-    <div class="section-header">
-      <div class="section-icon">💬</div>
-      <div class="section-title">
-        <h2>6. Sending Messages</h2>
-        <p>Communicate securely with the Acclaim team — with or without attaching files.</p>
-      </div>
-    </div>
-
-    <p>The portal's messaging system replaces insecure email for communications with Acclaim. All messages are stored securely, linked to your cases, and both parties receive email alerts when a new message arrives.</p>
-
-    <h3>Sending a Message from Within a Case</h3>
-    <p>This is the most common way to send a message. Open a case, click the <strong>Messages</strong> tab, then click <strong>New Message</strong>. Your message will be automatically linked to that case, and the Acclaim team will see the full case context alongside your message.</p>
-
-    <div class="mock-window">
-      <div class="mock-titlebar">
-        <div class="mock-dot" style="background:#ef4444;"></div>
-        <div class="mock-dot" style="background:#f59e0b;"></div>
-        <div class="mock-dot" style="background:#22c55e;"></div>
-        <span class="mock-titlebar-label">Messages — ACC-00124 Smith &amp; Sons Ltd</span>
-      </div>
-      <div class="mock-body">
-        <div class="message-bubble">
-          <div class="message-sender">Acclaim Team</div>
-          <div class="message-text">We have served the claim on the defendant. We expect a response within 14 days. We'll update you as soon as we hear back.</div>
-          <div class="message-time">2 June 2026 · 09:14</div>
-        </div>
-        <div class="message-bubble right">
-          <div class="message-sender right">You</div>
-          <div class="message-text">Thank you — please let me know if you need any further documentation from us in the meantime.</div>
-          <div class="message-time">2 June 2026 · 11:32</div>
-        </div>
-        <div style="border-top:1px solid #e2e8f0; padding-top:14px; margin-top:8px;">
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px 14px; font-size:13px; color:#94a3b8; margin-bottom:8px;">Write a message…</div>
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size:12px; color:#94a3b8;">📎 Attach a file</span>
-            <div style="background:#0d9488; color:white; border-radius:6px; padding:8px 16px; font-size:13px; font-weight:600; cursor:default;">Send Message</div>
+      <div class="section" id="messaging">
+        <div class="section-header">
+          <div class="section-icon">💬</div>
+          <div class="section-title">
+            <h2>6. Sending Messages</h2>
+            <p>
+              Communicate securely with the Acclaim team — with or without
+              attaching files.
+            </p>
           </div>
         </div>
+
+        <p>
+          The portal's messaging system replaces insecure email for
+          communications with Acclaim. All messages are stored securely, linked
+          to your cases, and both parties receive email alerts when a new
+          message arrives.
+        </p>
+
+        <h3>Sending a Message from Within a Case</h3>
+        <p>
+          This is the most common way to send a message. Open a case, click the
+          <strong>Messages</strong> tab, then click
+          <strong>New Message</strong>. Your message will be automatically
+          linked to that case, and the Acclaim team will see the full case
+          context alongside your message.
+        </p>
+
+        <div class="mock-window">
+          <div class="mock-titlebar">
+            <div class="mock-dot" style="background: #ef4444"></div>
+            <div class="mock-dot" style="background: #f59e0b"></div>
+            <div class="mock-dot" style="background: #22c55e"></div>
+            <span class="mock-titlebar-label"
+              >Messages — ACC-00124 Smith &amp; Sons Ltd</span
+            >
+          </div>
+          <div class="mock-body">
+            <div class="message-bubble">
+              <div class="message-sender">Acclaim Team</div>
+              <div class="message-text">
+                We have served the claim on the defendant. We expect a response
+                within 14 days. We'll update you as soon as we hear back.
+              </div>
+              <div class="message-time">2 June 2026 · 09:14</div>
+            </div>
+            <div class="message-bubble right">
+              <div class="message-sender right">You</div>
+              <div class="message-text">
+                Thank you — please let me know if you need any further
+                documentation from us in the meantime.
+              </div>
+              <div class="message-time">2 June 2026 · 11:32</div>
+            </div>
+            <div
+              style="
+                border-top: 1px solid #e2e8f0;
+                padding-top: 14px;
+                margin-top: 8px;
+              "
+            >
+              <div
+                style="
+                  background: #f8fafc;
+                  border: 1px solid #e2e8f0;
+                  border-radius: 8px;
+                  padding: 10px 14px;
+                  font-size: 13px;
+                  color: #94a3b8;
+                  margin-bottom: 8px;
+                "
+              >
+                Write a message…
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <span style="font-size: 12px; color: #94a3b8"
+                  >📎 Attach a file</span
+                >
+                <div
+                  style="
+                    background: #0d9488;
+                    color: white;
+                    border-radius: 6px;
+                    padding: 8px 16px;
+                    font-size: 13px;
+                    font-weight: 600;
+                    cursor: default;
+                  "
+                >
+                  Send Message
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Sending a General Message</h3>
+        <p>
+          For queries not related to a specific case, click
+          <strong>Messages</strong> in the sidebar and then
+          <strong>New Message</strong>. You can still choose to link it to a
+          case, or leave it as a general enquiry.
+        </p>
+
+        <h3>Attaching Files to Messages</h3>
+        <p>
+          You can attach a file to any message. Supported formats include PDF,
+          Word (.docx), Excel (.xlsx), and common image formats. The maximum
+          file size is <strong>25MB</strong>.
+        </p>
+
+        <div class="callout callout-tip">
+          <p class="callout-title">💡 Attachments are saved automatically</p>
+          <p>
+            When you attach a file to a message linked to a case, it is
+            automatically saved to the <strong>Documents</strong> section for
+            that case. You don't need to upload it separately.
+          </p>
+        </div>
+
+        <h3>Replying to Messages</h3>
+        <p>
+          When Acclaim sends you a message, you will receive an email
+          notification (unless the case is muted). Open the portal, navigate to
+          the message, and click <strong>Reply</strong>. The original message
+          text is quoted for context.
+        </p>
       </div>
-    </div>
 
-    <h3>Sending a General Message</h3>
-    <p>For queries not related to a specific case, click <strong>Messages</strong> in the sidebar and then <strong>New Message</strong>. You can still choose to link it to a case, or leave it as a general enquiry.</p>
-
-    <h3>Attaching Files to Messages</h3>
-    <p>You can attach a file to any message. Supported formats include PDF, Word (.docx), Excel (.xlsx), and common image formats. The maximum file size is <strong>10MB</strong>.</p>
-
-    <div class="callout callout-tip">
-      <p class="callout-title">💡 Attachments are saved automatically</p>
-      <p>When you attach a file to a message linked to a case, it is automatically saved to the <strong>Documents</strong> section for that case. You don't need to upload it separately.</p>
-    </div>
-
-    <h3>Replying to Messages</h3>
-    <p>When Acclaim sends you a message, you will receive an email notification (unless the case is muted). Open the portal, navigate to the message, and click <strong>Reply</strong>. The original message text is quoted for context.</p>
-  </div>
-
-
-  <!-- ══════════════════
+      <!-- ══════════════════
        7. DOCUMENTS
   ══════════════════ -->
-  <div class="section" id="documents">
-    <div class="section-header">
-      <div class="section-icon">📄</div>
-      <div class="section-title">
-        <h2>7. Documents</h2>
-        <p>Upload supporting evidence and download legal documents issued by Acclaim.</p>
-      </div>
-    </div>
+      <div class="section" id="documents">
+        <div class="section-header">
+          <div class="section-icon">📄</div>
+          <div class="section-title">
+            <h2>7. Documents</h2>
+            <p>
+              Upload supporting evidence and download legal documents issued by
+              Acclaim.
+            </p>
+          </div>
+        </div>
 
-    <p>Click <strong>Documents</strong> in the sidebar to open your document library. This shows all files across all of your cases — uploaded by you or issued by Acclaim.</p>
+        <p>
+          Click <strong>Documents</strong> in the sidebar to open your document
+          library. This shows all files across all of your cases — uploaded by
+          you or issued by Acclaim.
+        </p>
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card-icon">⬆️</div>
-        <h4>Uploading Documents</h4>
-        <p>Upload invoices, contracts, correspondence, or any supporting evidence. Open a case → Documents tab → Upload. You can also attach files via the messaging system.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">⬇️</div>
-        <h4>Downloading Documents</h4>
-        <p>Documents issued by Acclaim — such as court letters, formal notices, and agreements — appear here for you to download at any time.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🗂️</div>
-        <h4>Case Organisation</h4>
-        <p>Documents are grouped by case so you can quickly find everything related to a specific debt recovery matter.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">📊</div>
-        <h4>File Statistics</h4>
-        <p>The documents page shows a breakdown of file types (PDFs, Word documents, spreadsheets) so you always know what's on file.</p>
-      </div>
-    </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-card-icon">⬆️</div>
+            <h4>Uploading Documents</h4>
+            <p>
+              Upload invoices, contracts, correspondence, or any supporting
+              evidence. Open a case → Documents tab → Upload. You can also
+              attach files via the messaging system.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">⬇️</div>
+            <h4>Downloading Documents</h4>
+            <p>
+              Documents issued by Acclaim — such as court letters, formal
+              notices, and agreements — appear here for you to download at any
+              time.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">🗂️</div>
+            <h4>Case Organisation</h4>
+            <p>
+              Documents are grouped by case so you can quickly find everything
+              related to a specific debt recovery matter.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">📊</div>
+            <h4>File Statistics</h4>
+            <p>
+              The documents page shows a breakdown of file types (PDFs, Word
+              documents, spreadsheets) so you always know what's on file.
+            </p>
+          </div>
+        </div>
 
-    <div class="callout callout-note">
-      <p class="callout-title">📌 Supported file types &amp; size limit</p>
-      <p>PDF, Word (.doc, .docx), Excel (.xls, .xlsx), and common image formats (JPG, PNG). Maximum file size is <strong>10MB</strong> per file.</p>
-    </div>
-  </div>
+        <div class="callout callout-note">
+          <p class="callout-title">📌 Supported file types &amp; size limit</p>
+          <p>
+            PDF, Word (.doc, .docx), Excel (.xls, .xlsx), and common image
+            formats (JPG, PNG). Maximum file size is <strong>25MB</strong> per
+            file.
+          </p>
+        </div>
+      </div>
 
-
-  <!-- ══════════════════
+      <!-- ══════════════════
        8. SUBMIT A CASE
   ══════════════════ -->
-  <div class="section" id="submit">
-    <div class="section-header">
-      <div class="section-icon">➕</div>
-      <div class="section-title">
-        <h2>8. Submitting a New Case</h2>
-        <p>Instruct Acclaim to begin recovering a new debt directly through the portal.</p>
-      </div>
-    </div>
-
-    <p>Click <strong>Submit a Case</strong> in the sidebar to open the case submission form. This sends a new instruction to Acclaim, complete with all the information needed to begin the recovery process.</p>
-
-    <h3>What the Form Covers</h3>
-
-    <table class="matrix" style="margin-bottom:20px;">
-      <thead><tr><th>Section</th><th>Information Required</th></tr></thead>
-      <tbody>
-        <tr><td>Client Details</td><td>Pre-filled from your profile — your name, email, and organisation.</td></tr>
-        <tr><td>Creditor Information</td><td>The business or individual owed the money (usually you).</td></tr>
-        <tr><td>Debtor Type</td><td>Individual / Sole Trader <em>or</em> Organisation (company). Different fields apply to each.</td></tr>
-        <tr><td>Debtor Details</td><td>Full name or company name, address, contact details, company registration number (if applicable).</td></tr>
-        <tr><td>Debt Details</td><td>Original amount owed, description of the debt, invoice date(s).</td></tr>
-        <tr><td>Payment Terms</td><td>The agreed payment terms — days from invoice, days from month end, or custom.</td></tr>
-        <tr><td>Invoice Details</td><td>Invoice numbers, dates, and amounts.</td></tr>
-        <tr><td>Additional Information</td><td>Any relevant notes or background for Acclaim.</td></tr>
-        <tr><td>Supporting Documents</td><td>Upload invoices, contracts, or correspondence to support your instruction.</td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout callout-tip">
-      <p class="callout-title">💡 Only fill in what applies</p>
-      <p>The notification sent to Acclaim only includes the fields you have actually filled in — blank fields are excluded, keeping things clean and relevant.</p>
-    </div>
-
-    <p>Once submitted, Acclaim will review the instruction and create the case in the portal. You'll be able to track its progress from the Cases page.</p>
-  </div>
-
-
-  <!-- ══════════════════
-       9. NOTIFICATIONS
-  ══════════════════ -->
-  <div class="section" id="notifications">
-    <div class="section-header">
-      <div class="section-icon">🔔</div>
-      <div class="section-title">
-        <h2>9. Notification Settings</h2>
-        <p>Decide exactly when and how you are alerted about activity on your cases.</p>
-      </div>
-    </div>
-
-    <p>Go to <strong>Profile → Notification Preferences</strong> to manage your settings. You have two levels of control: global toggles that affect all cases, and per-case muting for fine-grained control.</p>
-
-    <div class="mock-window">
-      <div class="mock-titlebar">
-        <div class="mock-dot" style="background:#ef4444;"></div>
-        <div class="mock-dot" style="background:#f59e0b;"></div>
-        <div class="mock-dot" style="background:#22c55e;"></div>
-        <span class="mock-titlebar-label">Profile → Notification Preferences</span>
-      </div>
-      <div class="mock-body">
-        <div class="bell-row">
-          <span class="bell-icon">✉️</span>
-          <div>
-            <div class="bell-label">New message notifications</div>
-            <div class="bell-sub">Email me when Acclaim sends a new message on any case</div>
+      <div class="section" id="submit">
+        <div class="section-header">
+          <div class="section-icon">➕</div>
+          <div class="section-title">
+            <h2>8. Submitting a New Case</h2>
+            <p>
+              Instruct Acclaim to begin recovering a new debt directly through
+              the portal.
+            </p>
           </div>
-          <div class="toggle"></div>
         </div>
-        <div class="bell-row">
-          <span class="bell-icon">📄</span>
-          <div>
-            <div class="bell-label">Document upload notifications</div>
-            <div class="bell-sub">Email me when a new document is added to any of my cases</div>
-          </div>
-          <div class="toggle"></div>
-        </div>
-        <div class="bell-row">
-          <span class="bell-icon">🔒</span>
-          <div>
-            <div class="bell-label">Login alerts</div>
-            <div class="bell-sub">Email me when someone signs in to my account</div>
-          </div>
-          <div class="toggle"></div>
-        </div>
-        <div class="bell-row">
-          <span class="bell-icon">🔕</span>
-          <div>
-            <div class="bell-label">Auto-mute new cases</div>
-            <div class="bell-sub">Automatically mute all new cases added to my organisation</div>
-          </div>
-          <div class="toggle off"></div>
-        </div>
-      </div>
-    </div>
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card-icon">✉️</div>
-        <h4>Message Notifications</h4>
-        <p>Receive an email whenever Acclaim sends you a new message, with a direct link back to the portal.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">📄</div>
-        <h4>Document Notifications</h4>
-        <p>Be alerted when a new document is uploaded to any of your cases — so you never miss an important filing.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🔒</div>
-        <h4>Login Alerts</h4>
-        <p>Receive a security alert whenever your account is signed in to, including the method used (password, Microsoft SSO) and the device.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🔕</div>
-        <h4>Auto-Mute New Cases</h4>
-        <p>Automatically mute all new cases as they are added to your organisation, so you only opt in to the ones relevant to you.</p>
-      </div>
-    </div>
+        <p>
+          Click <strong>Submit a Case</strong> in the sidebar to open the case
+          submission form. This sends a new instruction to Acclaim, complete
+          with all the information needed to begin the recovery process.
+        </p>
 
-    <div class="callout callout-note">
-      <p class="callout-title">📌 Reminder: Per-case muting</p>
-      <p>The settings above apply globally. To mute a <em>specific</em> case only, use the bell icon inside the case detail view — see Section 5 for instructions.</p>
-    </div>
-  </div>
+        <h3>What the Form Covers</h3>
 
-
-  <!-- ══════════════════
-       10. ORG OWNERS
-  ══════════════════ -->
-  <div class="section" id="owners">
-    <div class="section-header">
-      <div class="section-icon">👑</div>
-      <div class="section-title">
-        <h2>10. Organisation Owner Controls</h2>
-        <p>For users designated as the owner of their organisation — manage team access to cases.</p>
-      </div>
-    </div>
-
-    <p>If Acclaim has granted you <strong>Owner</strong> status for your organisation, you will see an additional item in the sidebar: <strong>Organisation Settings</strong>. This gives you tools to manage which members of your team can see which cases — without needing to contact Acclaim for every change.</p>
-
-    <div class="callout callout-note">
-      <p class="callout-title">👑 Am I an Owner?</p>
-      <p>If you are an Organisation Owner, your organisation name in the sidebar will show a small <strong>crown icon (👑)</strong> badge next to it. You will also see the <strong>Organisation Settings</strong> link in the sidebar.</p>
-    </div>
-
-    <h3>Case Access Restrictions</h3>
-    <p>The most powerful feature available to owners is the <strong>Case Access Matrix</strong>. This allows you to block or allow specific team members' access to individual cases.</p>
-
-    <div class="mock-window">
-      <div class="mock-titlebar">
-        <div class="mock-dot" style="background:#ef4444;"></div>
-        <div class="mock-dot" style="background:#f59e0b;"></div>
-        <div class="mock-dot" style="background:#22c55e;"></div>
-        <span class="mock-titlebar-label">Organisation Settings → Case Access</span>
-      </div>
-      <div class="mock-body">
-        <div style="margin-bottom:14px; font-size:13px; color:#475569;">Manage which team members can access each case. Toggle to grant or restrict access.</div>
-        <table class="matrix">
+        <table class="matrix" style="margin-bottom: 20px">
           <thead>
             <tr>
-              <th>Team Member</th>
-              <th>ACC-00124 Smith &amp; Sons</th>
-              <th>ACC-00131 J. Robertson</th>
-              <th>ACC-00098 Brightfield</th>
+              <th>Section</th>
+              <th>Information Required</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>S. Thompson</td>
-              <td><span class="check">✅</span></td>
-              <td><span class="check">✅</span></td>
-              <td><span class="cross">🚫</span></td>
+              <td>Client Details</td>
+              <td>
+                Pre-filled from your profile — your name, email, and
+                organisation.
+              </td>
             </tr>
             <tr>
-              <td>K. Patel</td>
-              <td><span class="cross">🚫</span></td>
-              <td><span class="check">✅</span></td>
-              <td><span class="check">✅</span></td>
+              <td>Creditor Information</td>
+              <td>The business or individual owed the money (usually you).</td>
+            </tr>
+            <tr>
+              <td>Debtor Type</td>
+              <td>
+                Individual / Sole Trader <em>or</em> Organisation (company).
+                Different fields apply to each.
+              </td>
+            </tr>
+            <tr>
+              <td>Debtor Details</td>
+              <td>
+                Full name or company name, address, contact details, company
+                registration number (if applicable).
+              </td>
+            </tr>
+            <tr>
+              <td>Debt Details</td>
+              <td>
+                Original amount owed, description of the debt, invoice date(s).
+              </td>
+            </tr>
+            <tr>
+              <td>Payment Terms</td>
+              <td>
+                The agreed payment terms — days from invoice, days from month
+                end, or custom.
+              </td>
+            </tr>
+            <tr>
+              <td>Invoice Details</td>
+              <td>Invoice numbers, dates, and amounts.</td>
+            </tr>
+            <tr>
+              <td>Additional Information</td>
+              <td>Any relevant notes or background for Acclaim.</td>
+            </tr>
+            <tr>
+              <td>Supporting Documents</td>
+              <td>
+                Upload invoices, contracts, or correspondence to support your
+                instruction.
+              </td>
             </tr>
           </tbody>
         </table>
+
+        <div class="callout callout-tip">
+          <p class="callout-title">💡 Only fill in what applies</p>
+          <p>
+            The notification sent to Acclaim only includes the fields you have
+            actually filled in — blank fields are excluded, keeping things clean
+            and relevant.
+          </p>
+        </div>
+
+        <p>
+          Once submitted, Acclaim will review the instruction and create the
+          case in the portal. You'll be able to track its progress from the
+          Cases page.
+        </p>
       </div>
-    </div>
 
-    <h3>What Restricted Users Cannot See</h3>
-    <p>When a user is restricted from a case:</p>
-    <ul>
-      <li>The case does <strong>not</strong> appear in their Cases list</li>
-      <li>They cannot access the case detail, even with a direct link</li>
-      <li>They do <strong>not</strong> receive message or document notifications for that case</li>
-      <li>The restriction is invisible to them — there is no error shown, the case simply doesn't exist for them</li>
-    </ul>
-    <p>Restrictions can be removed at any time from the same matrix view.</p>
+      <!-- ══════════════════
+       9. NOTIFICATIONS
+  ══════════════════ -->
+      <div class="section" id="notifications">
+        <div class="section-header">
+          <div class="section-icon">🔔</div>
+          <div class="section-title">
+            <h2>9. Notification Settings</h2>
+            <p>
+              Decide exactly when and how you are alerted about activity on your
+              cases.
+            </p>
+          </div>
+        </div>
 
-    <h3>Viewing Your Team's Portfolio</h3>
-    <p>The Organisation Settings page also gives you a full view of all cases in your organisation and which team members are associated with each one, so you always have an accurate picture of your team's workload.</p>
-  </div>
+        <p>
+          Go to <strong>Profile → Notification Preferences</strong> to manage
+          your settings. You have two levels of control: global toggles that
+          affect all cases, and per-case muting for fine-grained control.
+        </p>
 
+        <div class="mock-window">
+          <div class="mock-titlebar">
+            <div class="mock-dot" style="background: #ef4444"></div>
+            <div class="mock-dot" style="background: #f59e0b"></div>
+            <div class="mock-dot" style="background: #22c55e"></div>
+            <span class="mock-titlebar-label"
+              >Profile → Notification Preferences</span
+            >
+          </div>
+          <div class="mock-body">
+            <div class="bell-row">
+              <span class="bell-icon">✉️</span>
+              <div>
+                <div class="bell-label">New message notifications</div>
+                <div class="bell-sub">
+                  Email me when Acclaim sends a new message on any case
+                </div>
+              </div>
+              <div class="toggle"></div>
+            </div>
+            <div class="bell-row">
+              <span class="bell-icon">📄</span>
+              <div>
+                <div class="bell-label">Document upload notifications</div>
+                <div class="bell-sub">
+                  Email me when a new document is added to any of my cases
+                </div>
+              </div>
+              <div class="toggle"></div>
+            </div>
+            <div class="bell-row">
+              <span class="bell-icon">🔒</span>
+              <div>
+                <div class="bell-label">Login alerts</div>
+                <div class="bell-sub">
+                  Email me when someone signs in to my account
+                </div>
+              </div>
+              <div class="toggle"></div>
+            </div>
+            <div class="bell-row">
+              <span class="bell-icon">🔕</span>
+              <div>
+                <div class="bell-label">Auto-mute new cases</div>
+                <div class="bell-sub">
+                  Automatically mute all new cases added to my organisation
+                </div>
+              </div>
+              <div class="toggle off"></div>
+            </div>
+          </div>
+        </div>
 
-  <!-- ══════════════════
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-card-icon">✉️</div>
+            <h4>Message Notifications</h4>
+            <p>
+              Receive an email whenever Acclaim sends you a new message, with a
+              direct link back to the portal.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">📄</div>
+            <h4>Document Notifications</h4>
+            <p>
+              Be alerted when a new document is uploaded to any of your cases —
+              so you never miss an important filing.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">🔒</div>
+            <h4>Login Alerts</h4>
+            <p>
+              Receive a security alert whenever your account is signed in to,
+              including the method used (password, Microsoft SSO) and the
+              device.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">🔕</div>
+            <h4>Auto-Mute New Cases</h4>
+            <p>
+              Automatically mute all new cases as they are added to your
+              organisation, so you only opt in to the ones relevant to you.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout callout-note">
+          <p class="callout-title">📌 Reminder: Per-case muting</p>
+          <p>
+            The settings above apply globally. To mute a <em>specific</em> case
+            only, use the bell icon inside the case detail view — see Section 5
+            for instructions.
+          </p>
+        </div>
+      </div>
+
+      <!-- ══════════════════
+       10. ORG OWNERS
+  ══════════════════ -->
+      <div class="section" id="owners">
+        <div class="section-header">
+          <div class="section-icon">👑</div>
+          <div class="section-title">
+            <h2>10. Organisation Owner Controls</h2>
+            <p>
+              For users designated as the owner of their organisation — manage
+              team access to cases.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          If Acclaim has granted you <strong>Owner</strong> status for your
+          organisation, you will see an additional item in the sidebar:
+          <strong>Organisation Settings</strong>. This gives you tools to manage
+          which members of your team can see which cases — without needing to
+          contact Acclaim for every change.
+        </p>
+
+        <div class="callout callout-note">
+          <p class="callout-title">👑 Am I an Owner?</p>
+          <p>
+            If you are an Organisation Owner, your organisation name in the
+            sidebar will show a small <strong>crown icon (👑)</strong> badge
+            next to it. You will also see the
+            <strong>Organisation Settings</strong> link in the sidebar.
+          </p>
+        </div>
+
+        <h3>Case Access Restrictions</h3>
+        <p>
+          The most powerful feature available to owners is the
+          <strong>Case Access Matrix</strong>. This allows you to block or allow
+          specific team members' access to individual cases.
+        </p>
+
+        <div class="mock-window">
+          <div class="mock-titlebar">
+            <div class="mock-dot" style="background: #ef4444"></div>
+            <div class="mock-dot" style="background: #f59e0b"></div>
+            <div class="mock-dot" style="background: #22c55e"></div>
+            <span class="mock-titlebar-label"
+              >Organisation Settings → Case Access</span
+            >
+          </div>
+          <div class="mock-body">
+            <div style="margin-bottom: 14px; font-size: 13px; color: #475569">
+              Manage which team members can access each case. Toggle to grant or
+              restrict access.
+            </div>
+            <table class="matrix">
+              <thead>
+                <tr>
+                  <th>Team Member</th>
+                  <th>ACC-00124 Smith &amp; Sons</th>
+                  <th>ACC-00131 J. Robertson</th>
+                  <th>ACC-00098 Brightfield</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>S. Thompson</td>
+                  <td><span class="check">✅</span></td>
+                  <td><span class="check">✅</span></td>
+                  <td><span class="cross">🚫</span></td>
+                </tr>
+                <tr>
+                  <td>K. Patel</td>
+                  <td><span class="cross">🚫</span></td>
+                  <td><span class="check">✅</span></td>
+                  <td><span class="check">✅</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3>What Restricted Users Cannot See</h3>
+        <p>When a user is restricted from a case:</p>
+        <ul>
+          <li>The case does <strong>not</strong> appear in their Cases list</li>
+          <li>They cannot access the case detail, even with a direct link</li>
+          <li>
+            They do <strong>not</strong> receive message or document
+            notifications for that case
+          </li>
+          <li>
+            The restriction is invisible to them — there is no error shown, the
+            case simply doesn't exist for them
+          </li>
+        </ul>
+        <p>
+          Restrictions can be removed at any time from the same matrix view.
+        </p>
+
+        <h3>Viewing Your Team's Portfolio</h3>
+        <p>
+          The Organisation Settings page also gives you a full view of all cases
+          in your organisation and which team members are associated with each
+          one, so you always have an accurate picture of your team's workload.
+        </p>
+      </div>
+
+      <!-- ══════════════════
        11. REPORTS
   ══════════════════ -->
-  <div class="section" id="reports">
-    <div class="section-header">
-      <div class="section-icon">📊</div>
-      <div class="section-title">
-        <h2>11. Reports</h2>
-        <p>Export detailed analysis of your debt recovery portfolio in Excel and PDF.</p>
+      <div class="section" id="reports">
+        <div class="section-header">
+          <div class="section-icon">📊</div>
+          <div class="section-title">
+            <h2>11. Reports</h2>
+            <p>
+              Export detailed analysis of your debt recovery portfolio in Excel
+              and PDF.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Click <strong>Reports</strong> in the sidebar to access all available
+          reports. Each report can be filtered, viewed on screen, and exported
+          to Excel or PDF.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-card-icon">📋</div>
+            <h4>Case Summary Report</h4>
+            <p>
+              A complete overview of your portfolio — debtor names, references,
+              statuses, stages, original debt, costs, interest, and outstanding
+              balances for every case.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-icon">📅</div>
+            <h4>Monthly Statement Report</h4>
+            <p>
+              A month-by-month reconciliation of all activity — useful for
+              accounting and financial reporting purposes.
+            </p>
+          </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">💷</div>
+          <h4>Payment Performance Report</h4>
+          <p>
+            A full breakdown of cash flow — payments received, expected, and
+            overdue, with patterns over time.
+          </p>
+        </div>
+
+          <div class="feature-card">
+            <div class="feature-card-icon">🗨️</div>
+            <h4>Messages Report</h4>
+            <p>
+              View a report of all messages in/out on your cases. You can filter by date range.
+            </p>
+          </div>
+          </div>
+        <h3>Filtering Reports</h3>
+        <p>Before generating a report, you can filter by:</p>
+        <ul>
+          <li>
+            <strong>Organisation</strong> — if you belong to multiple
+            organisations, report on one or all
+          </li>
+          <li>
+            <strong>Case status</strong> — active cases only, closed cases only,
+            or all
+          </li>
+          <li>
+            <strong>Date range</strong> — for time-period specific analysis
+          </li>
+        </ul>
+
+        <h3>Exporting</h3>
+        <p>
+          Every report can be exported as an
+          <strong>Excel spreadsheet</strong> (with colour-coded status columns)
+          or as a <strong>PDF</strong> for sharing or printing. Exports include
+          all filtered data and the same statistics shown on screen.
+        </p>
+
+        <div class="callout callout-tip">
+          <p class="callout-title">💡 Scheduled Reports</p>
+          <p>
+            Acclaim can configure <strong>scheduled reports</strong> to be
+            emailed to you automatically — daily, weekly, or monthly. If you'd
+            like to set this up, contact Acclaim at
+            <strong>email@acclaim.law</strong> and they can configure it from
+            the admin panel on your behalf.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <p>Click <strong>Reports</strong> in the sidebar to access all available reports. Each report can be filtered, viewed on screen, and exported to Excel or PDF.</p>
-
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card-icon">📋</div>
-        <h4>Case Summary Report</h4>
-        <p>A complete overview of your portfolio — debtor names, references, statuses, stages, original debt, costs, interest, and outstanding balances for every case.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">📈</div>
-        <h4>Recovery Analysis Report</h4>
-        <p>Metrics on your recovery effectiveness over time — recovery rates, trends, and performance by stage.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">💷</div>
-        <h4>Payment Performance Report</h4>
-        <p>A full breakdown of cash flow — payments received, expected, and overdue, with patterns over time.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">📅</div>
-        <h4>Monthly Statement Report</h4>
-        <p>A month-by-month reconciliation of all activity — useful for accounting and financial reporting purposes.</p>
-      </div>
-    </div>
-
-    <h3>Filtering Reports</h3>
-    <p>Before generating a report, you can filter by:</p>
-    <ul>
-      <li><strong>Organisation</strong> — if you belong to multiple organisations, report on one or all</li>
-      <li><strong>Case status</strong> — active cases only, closed cases only, or all</li>
-      <li><strong>Date range</strong> — for time-period specific analysis</li>
-    </ul>
-
-    <h3>Exporting</h3>
-    <p>Every report can be exported as an <strong>Excel spreadsheet</strong> (with colour-coded status columns) or as a <strong>PDF</strong> for sharing or printing. Exports include all filtered data and the same statistics shown on screen.</p>
-
-    <div class="callout callout-tip">
-      <p class="callout-title">💡 Scheduled Reports</p>
-      <p>Acclaim can configure <strong>scheduled reports</strong> to be emailed to you automatically — daily, weekly, or monthly. If you'd like to set this up, contact Acclaim at <strong>email@acclaim.law</strong> and they can configure it from the admin panel on your behalf.</p>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════
+      <!-- ══════════════════
        12. PROFILE
   ══════════════════ -->
-  <div class="section" id="profile">
-    <div class="section-header">
-      <div class="section-icon">👤</div>
-      <div class="section-title">
-        <h2>12. Your Profile</h2>
-        <p>Update your personal details, change your password, and manage your security settings.</p>
+      <div class="section" id="profile">
+        <div class="section-header">
+          <div class="section-icon">👤</div>
+          <div class="section-title">
+            <h2>12. Your Profile</h2>
+            <p>
+              Update your personal details, change your password, and manage
+              your security settings.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Click your name or avatar in the sidebar to open your profile. From
+          here you can manage everything related to your account.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-card-icon">✏️</div>
+            <h4>Personal Details</h4>
+            <p>
+              Update your name, email address, and phone number. These details
+              are used in case submissions and notifications.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">🔑</div>
+            <h4>Change Password</h4>
+            <p>
+              Change your portal password at any time. Passwords must be at
+              least 8 characters and include uppercase, lowercase, and a number.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">🔔</div>
+            <h4>Notification Preferences</h4>
+            <p>
+              Toggle email notifications for messages, documents, and login
+              alerts. Also controls the auto-mute setting for new cases.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-icon">🏢</div>
+            <h4>Your Organisations</h4>
+            <p>
+              See all organisations your account is linked to. If you believe
+              you are missing access, contact Acclaim to update your account.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- GETTING HELP -->
+      <div class="section" style="margin-bottom: 0">
+        <div class="section-header">
+          <div class="section-icon">🆘</div>
+          <div class="section-title">
+            <h2>Getting Help</h2>
+            <p>The Acclaim team is always on hand if you need assistance.</p>
+          </div>
+        </div>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 40px;
+          "
+        >
+          <div
+            style="
+              background: var(--teal-light);
+              border: 1px solid var(--teal-mid);
+              border-radius: 12px;
+              padding: 24px;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 32px; margin-bottom: 10px">✉️</div>
+            <div
+              style="
+                font-weight: 700;
+                color: var(--teal-dark);
+                font-size: 15px;
+                margin-bottom: 4px;
+              "
+            >
+              Email
+            </div>
+            <div style="color: var(--teal); font-size: 14px; font-weight: 500">
+              email@acclaim.law
+            </div>
+          </div>
+          <div
+            style="
+              background: var(--teal-light);
+              border: 1px solid var(--teal-mid);
+              border-radius: 12px;
+              padding: 24px;
+              text-align: center;
+            "
+          >
+            <div style="font-size: 32px; margin-bottom: 10px">📞</div>
+            <div
+              style="
+                font-weight: 700;
+                color: var(--teal-dark);
+                font-size: 15px;
+                margin-bottom: 4px;
+              "
+            >
+              Telephone
+            </div>
+            <div style="color: var(--teal); font-size: 14px; font-weight: 500">
+              0113 225 8811
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- /page -->
 
-    <p>Click your name or avatar in the sidebar to open your profile. From here you can manage everything related to your account.</p>
-
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card-icon">✏️</div>
-        <h4>Personal Details</h4>
-        <p>Update your name, email address, and phone number. These details are used in case submissions and notifications.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🔑</div>
-        <h4>Change Password</h4>
-        <p>Change your portal password at any time. Passwords must be at least 8 characters and include uppercase, lowercase, and a number.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🔔</div>
-        <h4>Notification Preferences</h4>
-        <p>Toggle email notifications for messages, documents, and login alerts. Also controls the auto-mute setting for new cases.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🏢</div>
-        <h4>Your Organisations</h4>
-        <p>See all organisations your account is linked to. If you believe you are missing access, contact Acclaim to update your account.</p>
-      </div>
+    <!-- FOOTER -->
+    <div class="guide-footer">
+      <strong>Acclaim Credit Management &amp; Recovery</strong><br />
+      Part of Chadwick Lawrence LLP ·
+      <a
+        href="https://acclaim-api-prod-uks-001.azurewebsites.net/auth"
+        style="color: rgba(255, 255, 255, 0.6)"
+        >acclaim-api-prod-uks-001.azurewebsites.net</a
+      ><br /><br />
+      <span style="opacity: 0.5"
+        >This guide covers features available to portal users.</span
+      >
     </div>
-  </div>
-
-  <hr>
-
-  <!-- GETTING HELP -->
-  <div class="section" style="margin-bottom:0;">
-    <div class="section-header">
-      <div class="section-icon">🆘</div>
-      <div class="section-title">
-        <h2>Getting Help</h2>
-        <p>The Acclaim team is always on hand if you need assistance.</p>
-      </div>
-    </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px;">
-      <div style="background:var(--teal-light); border:1px solid var(--teal-mid); border-radius:12px; padding:24px; text-align:center;">
-        <div style="font-size:32px; margin-bottom:10px;">✉️</div>
-        <div style="font-weight:700; color:var(--teal-dark); font-size:15px; margin-bottom:4px;">Email</div>
-        <div style="color:var(--teal); font-size:14px; font-weight:500;">email@acclaim.law</div>
-      </div>
-      <div style="background:var(--teal-light); border:1px solid var(--teal-mid); border-radius:12px; padding:24px; text-align:center;">
-        <div style="font-size:32px; margin-bottom:10px;">📞</div>
-        <div style="font-weight:700; color:var(--teal-dark); font-size:15px; margin-bottom:4px;">Telephone</div>
-        <div style="color:var(--teal); font-size:14px; font-weight:500;">0113 225 8811</div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /page -->
-
-<!-- FOOTER -->
-<div class="guide-footer">
-  <strong>Acclaim Credit Management &amp; Recovery</strong><br>
-  Part of Chadwick Lawrence LLP · <a href="https://acclaim-api-prod-uks-001.azurewebsites.net/auth" style="color:rgba(255,255,255,0.6);">acclaim-api-prod-uks-001.azurewebsites.net</a><br><br>
-  <span style="opacity:0.5;">This guide covers all features available to portal users. For administrator features, contact the Acclaim team.</span>
-</div>
-
-</body>
+  </body>
 </html>
