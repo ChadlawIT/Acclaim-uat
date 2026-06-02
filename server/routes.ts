@@ -6936,6 +6936,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // User Guide page (public, no auth required)
+  app.get('/user-guide', (req, res) => {
+    const guidePath = path.join(process.cwd(), 'docs', 'user-guide.html');
+    if (!fs.existsSync(guidePath)) {
+      return res.status(404).send('User guide not found');
+    }
+    res.sendFile(guidePath);
+  });
+
   // Download User Guide
   app.get('/api/download/user-guide', async (req, res) => {
     try {
